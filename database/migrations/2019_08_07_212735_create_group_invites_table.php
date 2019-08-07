@@ -17,8 +17,7 @@ class CreateGroupInvitesTable extends Migration
             $table->bigIncrements('id');
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('inviter_id')->nullable();
-            $table->string('team_id')->nullable();
+            $table->string('group_id')->nullable();
             $table->string('status')->default('waiting'); // waiting, declined, accepted
             $table->timestamps();
         });
