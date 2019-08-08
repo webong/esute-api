@@ -39,12 +39,13 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsToMany('\App\Role', 'group_user')
+        return $this->belongsToMany('\App\Role')
+            ->using('App\GroupUser')
             ->withPivot(['group_id', 'cycle', 'role_id', 'status'])
             ->withTimestamps();
     }
 
-	public function group()
+	public function groups()
 	{
         return $this->belongsToMany('\App\Group')
             ->using('App\GroupUser')
@@ -52,14 +53,9 @@ class User extends Authenticatable
             ->withTimestamps();
     }
     
-    public function contribution()
+    public function contributions()
     {
         return $this->hasMany('\App\Contribution');
-    }
-
-    public function group_invite()
-    {
-        return $this->hasMany('\App\GroupInvite'. 'inviter_id', 'id');
     }
 
     public function generateToken()

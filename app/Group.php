@@ -14,7 +14,7 @@ class Group extends Model
         'private' => 'boolean'
     ];
 
-    public function user()
+    public function members()
     {
         return $this->belongsToMany('\App\User')
             ->using('\App\GroupUser')
@@ -22,7 +22,7 @@ class Group extends Model
             ->withTimestamps();
     }
 
-    public function role()
+    public function roles()
     {
         return $this->belongsToMany('\App\Role')
             ->using('\App\GroupUser')
@@ -30,7 +30,7 @@ class Group extends Model
             ->withTimestamps();
     }
 
-    public function contribution()
+    public function contributions()
     {
         return $this->hasMany('\App\Contribution');
     }
