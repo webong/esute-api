@@ -15,8 +15,8 @@ class CreateGroupContributionsTable extends Migration
     {
         Schema::create('group_contributions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_id');
-            $table->string('group_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('group_id');
             $table->float('amount', 12, 2);
             $table->string('cycle')->default(1); // Cycle that the payments round is currently on
             $table->string('status');
@@ -24,8 +24,6 @@ class CreateGroupContributionsTable extends Migration
     
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('group_id')->references('id')->on('groups');
-
-            $table->primary('id');
         });
     }
 

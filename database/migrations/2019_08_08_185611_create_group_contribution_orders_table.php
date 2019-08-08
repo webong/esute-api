@@ -16,8 +16,8 @@ class CreateGroupContributionOrdersTable extends Migration
         Schema::create('group_contribution_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->tinyInteger('order');
-            $table->string('group_id');
-            $table->string('user_id');
+            $table->unsignedBigInteger('group_id');
+            $table->unsignedBigInteger('user_id');
             $table->integer('current_cycle');
             $table->date('schedule_date');
             $table->boolean('status');
