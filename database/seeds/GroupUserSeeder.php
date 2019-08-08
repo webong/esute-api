@@ -14,12 +14,11 @@ class GroupUserSeeder extends Seeder
      */
     public function run()
     {
-        // Ask range for film per user needed
-        $r = 0 . '-' . 10;
-        $range = $this->command->ask('How many group user relations do you need ?', $r);
+        // Ask number for groupuser needed
+        $range = (int) $this->command->ask('How many group user relations do you need ?', 10);
 
-        // Create a range of users and groups relationship
-        for ($i=0; $i < $this->count($range) ; $i++) { 
+        // Create users and groups relationship
+        for ($i=0; $i < $range ; $i++) { 
             GroupUser::firstOrCreate([
                 'user_id' => User::inRandomOrder()->first()->id,
                 'group_id' => Group::inRandomOrder()->first()->id

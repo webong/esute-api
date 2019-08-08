@@ -11,5 +11,6 @@ $factory->define(Group::class, function (Faker $faker) {
         'description' => $faker->realText(rand(80, 250)),
         'amount' => $faker->numberBetween(1000, 9000),
         'private' => $faker->boolean,
+        'start_date' => $faker->dateTime('next week', $timezone = null)
     ];
 });
