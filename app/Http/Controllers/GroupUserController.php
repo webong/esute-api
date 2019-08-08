@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Group;
+
 class GroupUserController extends Controller
 {
     /**
@@ -15,10 +16,9 @@ class GroupUserController extends Controller
     public function index(Group $group)
     {
         $groupMembers = $group->members()
-            ->with(['savings' => function($query) use ($group) {
-                $query->contributions()
-                ->where('group_id', $group->id)
-                ->sum('amount');
+            ->with(['contributions' => function ($query) use ($group) {
+                $query->where('group_id', $group->id)
+                    ->sum('amount');
             }])
             ->get();
         return response()->json($groupMembers);
@@ -35,10 +35,9 @@ class GroupUserController extends Controller
     {
         $groupMember = $group->members()
             ->where('user_id', $user->id)
-            ->with(['savings' => function($query) use ($group) {
-                $query->contributions()
-                ->where('group_id', $group->id)
-                ->sum('amount');
+            ->with(['contributions' => function ($query) use ($group) {
+                $query->where('group_id', $group->id)
+                    ->sum('amount');
             }])
             ->first();
 

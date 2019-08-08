@@ -19,10 +19,10 @@ class CreateGroupsTable extends Migration
             $table->string('description')->nullable();
             $table->float('amount', 12, 2);
             $table->date('start_date');
+            $table->integer('completed_cycle')->default(0);
             $table->integer('max_capacity')->nullable();
             $table->boolean('private')->default(false);
             $table->string('status')->default('inactive');
-            $table->integer('completed_cycle')->default(0);
             $table->timestamps();
         });
     }
