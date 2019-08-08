@@ -13,6 +13,6 @@ class GroupInviteController extends Controller
     {
         $processInvite->onQueue()->execute($request, $group, Auth::user());
 
-        return response()->json('Group Invites is being processed');
+        return response()->json('Group invite is being processed');
     }
 }

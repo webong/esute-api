@@ -34,7 +34,7 @@ class GroupController extends Controller
         $group = Group::create($data);
 
         if (!$group) {
-            return response()->json(500, 'Error Creating Group');
+            return response()->json('Error Creating Group', 500);
         }
 
         $role = Role::where('name', 'admin')->first();
@@ -56,7 +56,8 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        // abort_unless($episode->isVisibleTo(Auth::user()), 404);
+        if($group->private)
+            return response()->json('Group cannot be accessed', 403);
         return response()->json($group);
     }
 
@@ -71,6 +72,6 @@ class GroupController extends Controller
     { 
         $group->update($request->validated());
 
-        return request($group);
+        return request()->json(group);
     }
 }

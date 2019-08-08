@@ -9,9 +9,9 @@ use App\Actions\StartGroupCycle;
 
 class GroupScheduleController extends Controller
 {
-    public function index(Group $group, StartGroupCycle $startGroup)
+    public function index(Group $group, StartGroupCycle $startGroupCycle)
     {
-        $startGroup->onQueue()->execute($group);
+        $startGroupCycle->onQueue()->execute($group);
 
         return response()->json('Group contribution activated');
     }
@@ -23,7 +23,7 @@ class GroupScheduleController extends Controller
         ]);
 
         if($group->status = 'active')
-            return response()->json('You cannot update start date of an active group');
+            return response()->json('You cannot update start date of an active group', 400);
         
         $group->update(['start_date' => $request->update_date]);
 
