@@ -37,13 +37,11 @@ class GroupController extends Controller
             return response()->json('Error Creating Group', 500);
         }
 
-        $role = Role::where('name', 'admin')->first();
-        GroupUser::create([
+        $groupUser = GroupUser::create([
             'user_id' => Auth::id(),
             'group_id' => $group->id,
-            'role_id' => $role->id,
-            'status' => 'active',
         ]);
+        $groupUser->assignRole('admin');
 
         return response()->json($group);
     }

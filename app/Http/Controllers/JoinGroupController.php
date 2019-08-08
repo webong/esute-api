@@ -29,11 +29,9 @@ class JoinGroupController extends Controller
 
     private function createGroupUser($group)
     {
-        $role = Role::where('name', 'member')->first();
         GroupUser::create([
             'user_id' => Auth::id(),
             'group_id' => $group->id,
-            'role_id' => $role->id,
             'status' => 'active',
         ]);
     }
