@@ -11,7 +11,7 @@ class Group extends Model
     protected $dates = ['start_date'];
 
     protected $casts = [
-        'searchable' => 'boolean'
+        'private' => 'boolean'
     ];
 
     public function user()
@@ -37,6 +37,6 @@ class Group extends Model
 
     public function scopeSearchable($query)
     {
-        return $query->where('searchable', true);
+        return $query->where('private', false);
     }
 }

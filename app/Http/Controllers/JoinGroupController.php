@@ -2,12 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\GroupUser;
+use App\GroupInvite;
+use App\Http\Requests\JoinGroup;
+use App\Group;
 
 class JoinGroupController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(JoinGroup $request, Group $group)
     {
+        if(!is_null($this->groupUserExists($group)))
+                return response()->json('User is already  a group memeber');
         
+        if($request->has('invite_code'))  
+        {
+            if(is_null($this->groupInviteExists($request)))
+                return response()->json('Invite code is not valid');
+        } else {
+            if($group->private)
+                return response()->json('Private Group cannot be joined');
+        }
+
+        $this->createGroupUser($group);
+        return response()->json('You\'re now a member of {$group->name} group');
     }
+
+    private function createGroupUser($group)
+    {
+        $role = Role::where('name', 'member')->first();
+        GroupUser::create([
+            'user_id' => Auth::id(),
+            'group_id' => $group->id,
+            'role_id' => $role->id,
+            'status' => 'active',
+        ]);
+    }
+
+    private function groupInviteExists($invite_code)
+    {
+        return GroupInvite::where('code', $invite_code)->first();
+
+    }
+
+    private function groupUserExists()
+    {
+        return Auth::user()
+            ->whereHas('group', function($query) {
+                $query->where('id', $this->group->id);
+            })->first();
+    }
+
 }

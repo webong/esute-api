@@ -25,11 +25,11 @@ class Group extends FormRequest
     {
         return [
             'name' => 'required|string|unique:groups',
-            'description' => 'string|max:255',
+            'description' => 'nullable|string|max:255',
             'amount' => 'required|numeric|between:0,999999999999',
             'start_date' => 'required|date|after:yesterday',
-            'max_capacity' => 'integer',
-            'searchable' => 'boolean'
+            'max_capacity' => 'nullable|integer',
+            'private' => 'boolean'
         ];
     }
 }

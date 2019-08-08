@@ -41,9 +41,7 @@ class ProcessGroupInvite
                 if (!$this->confirmPreviousInviteByEmail($email)) {
                     if (is_null($this->groupUserExists($email))) {
                         $this->confirmedEmails[] = $email;
-                    } else {
-                        $this->previous['already'][] = $email;
-                    }
+                    } 
                 }
             } 
         }

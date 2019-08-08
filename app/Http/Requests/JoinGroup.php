@@ -24,7 +24,7 @@ class JoinGroup extends FormRequest
     public function rules()
     {
         return [
-            //
+            'invite_code' => 'nullable|string'
         ];
     }
 }
