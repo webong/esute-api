@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContributionsTable extends Migration
+class CreateGroupContributionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateContributionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contributions', function (Blueprint $table) {
+        Schema::create('group_contributions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id');
-            $table->float('amount', 12, 2);
             $table->string('group_id');
-            $table->integer('current_cycle'); // Cycle that the payments round is currently on
+            $table->float('amount', 12, 2);
+            $table->string('cycle')->default(1); // Cycle that the payments round is currently on
             $table->string('status');
             $table->timestamps();
     
@@ -36,6 +36,6 @@ class CreateContributionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contributions');
+        Schema::dropIfExists('group_contributions');
     }
 }

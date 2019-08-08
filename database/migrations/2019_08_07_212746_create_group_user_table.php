@@ -16,8 +16,8 @@ class CreateGroupUserTable extends Migration
         Schema::create('group_user', function (Blueprint $table) {
             $table->string('group_id');
   			$table->string('user_id');
-  			$table->string('cycle')->default(1);
-  			$table->integer('role_id')->unsigned();
+            $table->integer('role_id')->unsigned();
+            $table->string('cycle')->default(1);
   			$table->string('status')->default('inactive');
             $table->timestamps();
 
