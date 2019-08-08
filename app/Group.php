@@ -10,6 +10,10 @@ class Group extends Model
 
     protected $dates = ['start_date'];
 
+    protected $casts = [
+        'searchable' => 'boolean'
+    ];
+
     public function user()
     {
         return $this->belongsToMany('\App\User')
@@ -29,5 +33,10 @@ class Group extends Model
     public function contribution()
     {
         return $this->hasMany('\App\Contribution');
+    }
+
+    public function scopeSearchable($query)
+    {
+        return $query->where('searchable', true);
     }
 }
