@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\Group;
 use App\GroupUser;
-use App\Http\Requests\GroupRequest;
+use App\Http\Requests\Group as GroupRequest;
 
 class GroupController extends Controller
 {

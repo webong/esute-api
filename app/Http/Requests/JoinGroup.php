@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GroupInviteRequest extends FormRequest
+class JoinGroup extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class GroupInviteRequest extends FormRequest
     public function rules()
     {
         return [
-            'emails' => 'string',
-            'message' => 'nullable|string',
+            //
         ];
     }
 }
