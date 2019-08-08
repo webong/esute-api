@@ -2,83 +2,96 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\User;
+use App\Group;
+use App\GroupInvite;
+use App\Jobs\SendGroupInvite;
+use App\Http\Requests\GroupInviteRequest;
 
 class GroupInviteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $group;
+
+    protected $sender;
+
+    protected $confirmedEmails = [];
+
+    public function __invoke(GroupInviteRequest $request, Group $group)
     {
-        //
+        $this->group = $group;
+        $this->sender = Auth::user();
+        $this->validateUniqueEmails(...$request->emails);
+        $this->sendInvite($this->confirmedEmails, $request->message);
+        return response()->json('Your Group Invitation is being processed');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    protected function validateUniqueEmails($emails)
     {
-        //
+        // Filtering Duplicates and Null values
+        (array) $emails = array_filter(array_unique($emails));
+
+        foreach ($emails as $key => $email) {
+            $email = trim($email);
+            // Skip email if it belongs to sender
+            if ($email == $this->sender) continue;
+
+            if (filter_var($emails, FILTER_VALIDATE_EMAIL)) {
+                if (!$this->confirmPreviousInviteByEmail($email)) {
+                    if (is_null($this->groupUserExists($email))) {
+                        $this->confirmedEmails[] = $email;
+                    } else {
+                        $this->previous['already'][] = $email;
+                    }
+                }
+            } 
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function confirmPreviousInviteByEmail($email)
     {
-        //
+        $previousInvite = GroupInvite::where('email', $email)->where('group_id', $this->group->id)->first();
+        return ($previousInvite) ? $this->analyzeResponse($previousInvite, $email) : false;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function analyzeResponse($previousInvite, $email)
     {
-        //
+        if ($previousInvite->status == 'waiting') {
+            $this->previous['awaiting'][] = $email;
+            return true;
+        } elseif ($previousInvite->status == 'accepted') {
+            $this->previous['already'][] = $email;
+            return true;
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function groupUserExists($email)
     {
-        //
+        return User::where('email', $email)
+            ->whereHas('group', function($query) {
+                $query->where('id', $this->group->id);
+            })->first();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function createGroupInvite($email)
     {
-        //
+        return GroupInvite::create([
+            'email' => $email,
+            'code' => str_random(6),
+            'group_id' => $this->group->id,
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function sendInvite($confirmedEmails, $message)
     {
-        //
+        foreach ($confirmedEmails as $email) {       
+            $groupinvite = $this->createGroupInvite($email);     
+            SendGroupInvite::dispatch(
+                $email, 
+                $groupinvite->code,
+                $this->group, $message, 
+                $this->user->name
+            );
+        }
     }
+
 }
