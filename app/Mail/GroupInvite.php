@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class GroupInvite extends Mailable
+class GroupInvite extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -36,6 +36,7 @@ class GroupInvite extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from('noreply@esute.ng')
+            ->markdown('emails.groups.invite');
     }
 }

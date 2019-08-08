@@ -12,7 +12,7 @@ class JoinGroupController extends Controller
     public function __invoke(JoinGroup $request, Group $group)
     {
         if(!is_null($this->groupUserExists($group)))
-                return response()->json('User is already  a group memeber');
+                return response()->json('You\'re already a member of this group');
         
         if($request->has('invite_code'))  
         {
@@ -20,7 +20,7 @@ class JoinGroupController extends Controller
                 return response()->json('Invite code is not valid');
         } else {
             if($group->private)
-                return response()->json('Private Group cannot be joined');
+                return response()->json('You cannot join a private group');
         }
 
         $this->createGroupUser($group);
