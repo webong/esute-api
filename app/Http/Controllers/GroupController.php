@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\Group;
 use App\GroupUser;
-use App\Http\Requests\Group as GroupRequest;
+use App\Http\Requests\CreateGroup;
+use App\Http\Requests\UpdateGroup;
 
 class GroupController extends Controller
 {
@@ -23,10 +24,10 @@ class GroupController extends Controller
     /**
      * Store a newly created group in database.
      *
-     * @param \App\Http\Requests\GroupRequest $request
+     * @param \App\Http\Requests\CreateGroup $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GroupRequest $request)
+    public function store(CreateGroup $request)
     {
         $data = $request->validated();
 
@@ -62,15 +63,13 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\GroupRequest $request
+     * @param \App\Http\Requests\UpdateRequest $request
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function update(GroupRequest $request, Group $group)
-    {
-        $data = $request->validated();
-
-        $group->update($data);
+    public function update(UpdateGroup $request, Group $group)
+    { 
+        $group->update($request->validated());
 
         return request($group);
     }

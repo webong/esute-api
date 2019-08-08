@@ -14,7 +14,13 @@ class GroupUserController extends Controller
      */
     public function index(Group $group)
     {
-        $groupMembers = $group->members;
+        $groupMembers = $group->members()
+            ->with(['savings' => function($query) use ($group) {
+                $query->contributions()
+                ->where('group_id', $group->id)
+                ->sum('amount');
+            }])
+            ->get();
         return response()->json($groupMembers);
     }
 
@@ -27,12 +33,15 @@ class GroupUserController extends Controller
      */
     public function show(Group $group, User $user)
     {
-        $groupMember = $group->members()->where('user_id', $user->id)->first();
-        $groupContributions = $groupMember->contributions()->where('group_id', $group->id)->get();
+        $groupMember = $group->members()
+            ->where('user_id', $user->id)
+            ->with(['savings' => function($query) use ($group) {
+                $query->contributions()
+                ->where('group_id', $group->id)
+                ->sum('amount');
+            }])
+            ->first();
 
-        return response()->json([
-            $groupMember,
-            'contributions' => $groupContributions,
-        ]);
+        return response()->json($groupMember);
     }
 }
