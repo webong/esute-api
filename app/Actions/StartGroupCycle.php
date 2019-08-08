@@ -3,7 +3,7 @@
 namespace App\Actions;
 
 use App\Group;
-use App\Jobs\ScheduleGroupContributions;
+use App\Jobs\CollectGroupContributions;
 use Spatie\QueueableAction\QueueableAction;
 use Illuminate\Console\Scheduling\Schedule;
 use App\GroupContributionOrder;
@@ -27,9 +27,9 @@ class StartGroupCycle
         ]);
 
         $setArrangment = $this->contributionOrder($group);
-        $this->saveContributionOrder($setArrangment, $group);
+        $groupOrder = $this->saveContributionOrder($setArrangment, $group);
 
-        $job = new CollectGroupContributions($group);
+        $job = new CollectGroupContributions($groupOrder);
         
         $this->schedule->job($job)->weekly();
     }

@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Group;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -13,14 +12,16 @@ class CollectGroupContributions implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $list;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Group $group)
+    public function __construct($groupList)
     {
-        //
+        $this->list = $groupList;
     }
 
     /**
@@ -30,6 +31,11 @@ class CollectGroupContributions implements ShouldQueue
      */
     public function handle()
     {
-        //
+        // Charge all members
+        foreach ($this->list as $key => $member) {
+            dispatch(function($member){
+               // Charge the member;
+            });
+        }
     }
 }
