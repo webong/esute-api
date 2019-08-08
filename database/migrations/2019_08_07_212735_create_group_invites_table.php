@@ -15,8 +15,8 @@ class CreateGroupInvitesTable extends Migration
     {
         Schema::create('group_invites', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('code');
             $table->string('email')->nullable();
-            $table->string('phone')->nullable();
             $table->string('group_id')->nullable();
             $table->string('status')->default('waiting'); // waiting, declined, accepted
             $table->timestamps();
