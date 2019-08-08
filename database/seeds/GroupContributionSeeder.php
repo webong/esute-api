@@ -1,9 +1,8 @@
 <?php
 
-use App\Role;
 use Illuminate\Database\Seeder;
 
-class RolesTableSeeder extends Seeder
+class GroupContributionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,6 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        $role = Role::create(['name' => 'super-admin']);
+        //
     }
 }

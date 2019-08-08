@@ -15,13 +15,15 @@ class CreateGroupUserTable extends Migration
     {
         Schema::create('group_user', function (Blueprint $table) {
             $table->string('group_id');
-  			$table->string('user_id');
+            $table->string('user_id');
             $table->string('cycle')->default(1);
-  			$table->string('status')->default('inactive');
+            $table->string('status')->default('inactive');
             $table->timestamps();
 
-  			$table->foreign('group_id')->references('id')->on('groups');
-  			$table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('group_id')->references('id')->on('groups');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->primary(['user_id', 'group_id']);
         });
     }
 
