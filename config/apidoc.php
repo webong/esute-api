@@ -46,6 +46,34 @@ return [
      */
     'routes' => [
         [
+            'match' => [
+                /*
+                 * Match only routes whose domains match this pattern (use * as a wildcard to match any characters).
+                 */
+                'domains' => [
+                    '*',
+                    // 'domain1.*',
+                ],
+
+                /*
+                 * Match only routes whose paths match this pattern (use * as a wildcard to match any characters).
+                 */
+                'prefixes' => [
+                    'api/register',
+                    'api/login',
+                ],
+
+                /*
+                 * Match only routes registered under this version. This option is ignored for Laravel router.
+                 * Note that wildcards are not supported.
+                 */
+                'versions' => [
+                    'v1',
+                ],
+            ],
+
+        ],
+        [
             /*
              * Specify conditions to determine what routes will be parsed in this group.
              * A route must fulfill ALL conditions to pass.
@@ -64,8 +92,8 @@ return [
                  * Match only routes whose paths match this pattern (use * as a wildcard to match any characters).
                  */
                 'prefixes' => [
-                    '*',
-                    // 'users/*',
+                    'api/logout',
+                    'api/groups/*',
                 ],
 
                 /*
@@ -103,7 +131,7 @@ return [
                  * Specify headers to be added to the example requests
                  */
                 'headers' => [
-                    // 'Authorization' => 'Bearer {token}',
+                    'Authorization' => 'Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P',
                     // 'Api-Version' => 'v2',
                 ],
 
@@ -131,6 +159,7 @@ return [
                      */
                     'bindings' => [
                         '{user}' => 1,
+                        '{group}' => 2,
                     ],
 
                     /*
@@ -207,6 +236,7 @@ return [
     'example_languages' => [
         'bash',
         'javascript',
+        'php',
     ],
 
     /*

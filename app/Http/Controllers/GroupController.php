@@ -56,6 +56,7 @@ class GroupController extends Controller
     {
         if($group->private)
             return response()->json('Group cannot be accessed', 403);
+            
         return response()->json($group);
     }
 
