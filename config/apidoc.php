@@ -93,6 +93,7 @@ return [
                  */
                 'prefixes' => [
                     'api/logout',
+                    'api/groups',
                     'api/groups/*',
                 ],
 

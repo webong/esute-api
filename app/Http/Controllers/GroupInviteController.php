@@ -6,6 +6,9 @@ use App\Group;
 use App\Http\Requests\GroupInvite;
 use App\Actions\ProcessGroupInvite;
 
+/**
+ * @group Group Invitation
+ */
 class GroupInviteController extends Controller
 {
 

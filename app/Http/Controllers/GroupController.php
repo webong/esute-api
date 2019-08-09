@@ -9,7 +9,7 @@ use App\Http\Requests\UpdateGroup;
 use App\Http\Resources\GroupResource;
 
 /**
- * @group Saving Groups
+ * @group Groups
  * 
  * @authenticated
  * APIs for interacting and managing saving groups
