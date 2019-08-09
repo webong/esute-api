@@ -24,13 +24,14 @@ Welcome to the generated API reference.
 <!-- START_3266674e1b0d799355c17f2d42d7be9a -->
 ## Invite a list of emails to the group.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST "/api/groups/2/invite" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"neque","message":"quasi"}'
+    -d '{"emails":"et","message":"dolore"}'
 
 ```
 
@@ -44,8 +45,8 @@ let headers = {
 }
 
 let body = {
-    "emails": "neque",
-    "message": "quasi"
+    "emails": "et",
+    "message": "dolore"
 }
 
 fetch(url, {
@@ -66,8 +67,8 @@ $response = $client->post("/api/groups/2/invite", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "emails" => "neque",
-            "message" => "quasi",
+            "emails" => "et",
+            "message" => "dolore",
         ],
 ]);
 $body = $response->getBody();
@@ -102,6 +103,7 @@ Parameter | Type | Status | Description
 <!-- START_25cacea309e94199433ca72c489534bc -->
 ## Display a listing of the group members.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -215,6 +217,7 @@ print_r(json_decode((string) $body));
 <!-- START_291738af5a803fa8d10caab6ab8c683f -->
 ## Start a Group Saving
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -263,6 +266,7 @@ print_r(json_decode((string) $body));
 <!-- START_58ec0449df2a33945d8d3ceb1f31b303 -->
 ## Update Group Start Date if not already started
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -309,9 +313,12 @@ print_r(json_decode((string) $body));
 <!-- END_58ec0449df2a33945d8d3ceb1f31b303 -->
 
 #Groups
+
+APIs for interacting and managing saving groups
 <!-- START_007018a8a9f15c2d47fcb105431ffeee -->
 ## Display a listing of the group.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -323,7 +330,7 @@ curl -X GET -G "/api/groups" \
 const url = new URL("/api/groups");
 
     let params = {
-            "page": "5",
+            "page": "16",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -349,7 +356,7 @@ $response = $client->get("/api/groups", [
             "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
         ],
     'query' => [
-            "page" => "5",
+            "page" => "16",
         ],
 ]);
 $body = $response->getBody();
@@ -381,13 +388,14 @@ Parameter | Status | Description
 <!-- START_15c22564ad248f952405021410fd1d25 -->
 ## Store a newly created group in database.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST "/api/groups" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"voluptatem","description":"corrupti","amount":0,"max_capacity":16,"start_date":"distinctio","private":true}'
+    -d '{"name":"natus","description":"et","amount":0,"max_capacity":5,"start_date":"nostrum","private":true}'
 
 ```
 
@@ -401,11 +409,11 @@ let headers = {
 }
 
 let body = {
-    "name": "voluptatem",
-    "description": "corrupti",
+    "name": "natus",
+    "description": "et",
     "amount": 0,
-    "max_capacity": 16,
-    "start_date": "distinctio",
+    "max_capacity": 5,
+    "start_date": "nostrum",
     "private": true
 }
 
@@ -427,11 +435,11 @@ $response = $client->post("/api/groups", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "voluptatem",
-            "description" => "corrupti",
+            "name" => "natus",
+            "description" => "et",
             "amount" => "0",
-            "max_capacity" => "16",
-            "start_date" => "distinctio",
+            "max_capacity" => "5",
+            "start_date" => "nostrum",
             "private" => "1",
         ],
 ]);
@@ -461,6 +469,7 @@ Parameter | Type | Status | Description
 <!-- START_a209a43173c7c4aaf7ab070d77fb7f0c -->
 ## Display the group resource.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -517,13 +526,14 @@ print_r(json_decode((string) $body));
 <!-- START_5b84408c838201930093112a7621935c -->
 ## Update the specified group in storage.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT "/api/groups/2" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"id","description":"voluptatem","amount":74231.84190268,"max_capacity":13,"private":true}'
+    -d '{"name":"quaerat","description":"incidunt","amount":72885830.8,"max_capacity":5,"private":true}'
 
 ```
 
@@ -537,10 +547,10 @@ let headers = {
 }
 
 let body = {
-    "name": "id",
-    "description": "voluptatem",
-    "amount": 74231.84190268,
-    "max_capacity": 13,
+    "name": "quaerat",
+    "description": "incidunt",
+    "amount": 72885830.8,
+    "max_capacity": 5,
     "private": true
 }
 
@@ -562,10 +572,10 @@ $response = $client->put("/api/groups/2", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "id",
-            "description" => "voluptatem",
-            "amount" => "74231.84190268",
-            "max_capacity" => "13",
+            "name" => "quaerat",
+            "description" => "incidunt",
+            "amount" => "72885830.8",
+            "max_capacity" => "5",
             "private" => "1",
         ],
 ]);
@@ -592,6 +602,73 @@ Parameter | Type | Status | Description
     private | boolean |  optional  | The group type if private or public. Defaults to false.
 
 <!-- END_5b84408c838201930093112a7621935c -->
+
+#Join Group
+<!-- START_7f0d3a6203c9b62c8808dbc0c34fd826 -->
+## Join a Group
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST "/api/groups/2/join" \
+    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
+    -H "Content-Type: application/json" \
+    -d '{"invite_code":"et"}'
+
+```
+
+```javascript
+const url = new URL("/api/groups/2/join");
+
+let headers = {
+    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "invite_code": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post("/api/groups/2/join", [
+    'headers' => [
+            "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+            "Content-Type" => "application/json",
+        ],
+    'json' => [
+            "invite_code" => "et",
+        ],
+]);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+
+### HTTP Request
+`POST api/groups/{group}/join`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    invite_code | string |  optional  | nullable The invite_code to join a group.
+
+<!-- END_7f0d3a6203c9b62c8808dbc0c34fd826 -->
 
 #general
 <!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
@@ -727,69 +804,5 @@ print_r(json_decode((string) $body));
 
 
 <!-- END_61739f3220a224b34228600649230ad1 -->
-
-<!-- START_7f0d3a6203c9b62c8808dbc0c34fd826 -->
-## api/groups/{group}/join
-> Example request:
-
-```bash
-curl -X POST "/api/groups/2/join" \
-    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
-    -H "Content-Type: application/json" \
-    -d '{"invite_code":"enim"}'
-
-```
-
-```javascript
-const url = new URL("/api/groups/2/join");
-
-let headers = {
-    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-let body = {
-    "invite_code": "enim"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->post("/api/groups/2/join", [
-    'headers' => [
-            "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-            "Content-Type" => "application/json",
-        ],
-    'json' => [
-            "invite_code" => "enim",
-        ],
-]);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-
-
-
-### HTTP Request
-`POST api/groups/{group}/join`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    invite_code | string |  optional  | nullable The invite_code to join a group.
-
-<!-- END_7f0d3a6203c9b62c8808dbc0c34fd826 -->
 
 

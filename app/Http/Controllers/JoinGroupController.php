@@ -7,8 +7,19 @@ use App\GroupInvite;
 use App\Http\Requests\JoinGroup;
 use App\Group;
 
+/**
+ * @group Join Group
+ */
 class JoinGroupController extends Controller
 {
+    /**
+     * Join a Group
+     *
+     * @authenticated
+     * @param JoinGroup $request
+     * @param Group $group
+     * @return void
+     */
     public function __invoke(JoinGroup $request, Group $group)
     {
         if(!is_null($this->groupUserExists($group)))

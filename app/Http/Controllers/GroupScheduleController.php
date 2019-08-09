@@ -14,6 +14,7 @@ class GroupScheduleController extends Controller
     /**
      * Start a Group Saving
      *
+     * @authenticated
      * @param Group $group
      * @param StartGroupCycle $startGroupCycle
      * @return void
@@ -28,6 +29,7 @@ class GroupScheduleController extends Controller
     /**
      * Update Group Start Date if not already started
      *
+     * @authenticated
      * @param Request $request
      * @param Group $group
      * @return void

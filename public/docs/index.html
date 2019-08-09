@@ -51,13 +51,14 @@
 <h1>Group Invitation</h1>
 <!-- START_3266674e1b0d799355c17f2d42d7be9a -->
 <h2>Invite a list of emails to the group.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "/api/groups/2/invite" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"neque","message":"quasi"}'
+    -d '{"emails":"et","message":"dolore"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups/2/invite");
 
@@ -68,8 +69,8 @@ let headers = {
 }
 
 let body = {
-    "emails": "neque",
-    "message": "quasi"
+    "emails": "et",
+    "message": "dolore"
 }
 
 fetch(url, {
@@ -87,8 +88,8 @@ $response = $client-&gt;post("/api/groups/2/invite", [
             "Content-Type" =&gt; "application/json",
         ],
     'json' =&gt; [
-            "emails" =&gt; "neque",
-            "message" =&gt; "quasi",
+            "emails" =&gt; "et",
+            "message" =&gt; "dolore",
         ],
 ]);
 $body = $response-&gt;getBody();
@@ -132,6 +133,7 @@ print_r(json_decode((string) $body));</code></pre>
 <h1>Group Members</h1>
 <!-- START_25cacea309e94199433ca72c489534bc -->
 <h2>Display a listing of the group members.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -213,6 +215,7 @@ print_r(json_decode((string) $body));</code></pre>
 <h1>Group Scheduling</h1>
 <!-- START_291738af5a803fa8d10caab6ab8c683f -->
 <h2>Start a Group Saving</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -246,6 +249,7 @@ print_r(json_decode((string) $body));</code></pre>
 <!-- END_291738af5a803fa8d10caab6ab8c683f -->
 <!-- START_58ec0449df2a33945d8d3ceb1f31b303 -->
 <h2>Update Group Start Date if not already started</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -278,8 +282,10 @@ print_r(json_decode((string) $body));</code></pre>
 <p><code>PUT api/groups/{group}/schedule</code></p>
 <!-- END_58ec0449df2a33945d8d3ceb1f31b303 -->
 <h1>Groups</h1>
+<p>APIs for interacting and managing saving groups</p>
 <!-- START_007018a8a9f15c2d47fcb105431ffeee -->
 <h2>Display a listing of the group.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -288,7 +294,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups");
 
     let params = {
-            "page": "5",
+            "page": "16",
         };
     Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
 
@@ -311,7 +317,7 @@ $response = $client-&gt;get("/api/groups", [
             "Authorization" =&gt; "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
         ],
     'query' =&gt; [
-            "page" =&gt; "5",
+            "page" =&gt; "16",
         ],
 ]);
 $body = $response-&gt;getBody();
@@ -345,13 +351,14 @@ print_r(json_decode((string) $body));</code></pre>
 <!-- END_007018a8a9f15c2d47fcb105431ffeee -->
 <!-- START_15c22564ad248f952405021410fd1d25 -->
 <h2>Store a newly created group in database.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "/api/groups" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"voluptatem","description":"corrupti","amount":0,"max_capacity":16,"start_date":"distinctio","private":true}'
+    -d '{"name":"natus","description":"et","amount":0,"max_capacity":5,"start_date":"nostrum","private":true}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups");
 
@@ -362,11 +369,11 @@ let headers = {
 }
 
 let body = {
-    "name": "voluptatem",
-    "description": "corrupti",
+    "name": "natus",
+    "description": "et",
     "amount": 0,
-    "max_capacity": 16,
-    "start_date": "distinctio",
+    "max_capacity": 5,
+    "start_date": "nostrum",
     "private": true
 }
 
@@ -385,11 +392,11 @@ $response = $client-&gt;post("/api/groups", [
             "Content-Type" =&gt; "application/json",
         ],
     'json' =&gt; [
-            "name" =&gt; "voluptatem",
-            "description" =&gt; "corrupti",
+            "name" =&gt; "natus",
+            "description" =&gt; "et",
             "amount" =&gt; "0",
-            "max_capacity" =&gt; "16",
-            "start_date" =&gt; "distinctio",
+            "max_capacity" =&gt; "5",
+            "start_date" =&gt; "nostrum",
             "private" =&gt; "1",
         ],
 ]);
@@ -449,6 +456,7 @@ print_r(json_decode((string) $body));</code></pre>
 <!-- END_15c22564ad248f952405021410fd1d25 -->
 <!-- START_a209a43173c7c4aaf7ab070d77fb7f0c -->
 <h2>Display the group resource.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -489,13 +497,14 @@ print_r(json_decode((string) $body));</code></pre>
 <!-- END_a209a43173c7c4aaf7ab070d77fb7f0c -->
 <!-- START_5b84408c838201930093112a7621935c -->
 <h2>Update the specified group in storage.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT "/api/groups/2" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"id","description":"voluptatem","amount":74231.84190268,"max_capacity":13,"private":true}'
+    -d '{"name":"quaerat","description":"incidunt","amount":72885830.8,"max_capacity":5,"private":true}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups/2");
 
@@ -506,10 +515,10 @@ let headers = {
 }
 
 let body = {
-    "name": "id",
-    "description": "voluptatem",
-    "amount": 74231.84190268,
-    "max_capacity": 13,
+    "name": "quaerat",
+    "description": "incidunt",
+    "amount": 72885830.8,
+    "max_capacity": 5,
     "private": true
 }
 
@@ -528,10 +537,10 @@ $response = $client-&gt;put("/api/groups/2", [
             "Content-Type" =&gt; "application/json",
         ],
     'json' =&gt; [
-            "name" =&gt; "id",
-            "description" =&gt; "voluptatem",
-            "amount" =&gt; "74231.84190268",
-            "max_capacity" =&gt; "13",
+            "name" =&gt; "quaerat",
+            "description" =&gt; "incidunt",
+            "amount" =&gt; "72885830.8",
+            "max_capacity" =&gt; "5",
             "private" =&gt; "1",
         ],
 ]);
@@ -584,6 +593,72 @@ print_r(json_decode((string) $body));</code></pre>
 </tbody>
 </table>
 <!-- END_5b84408c838201930093112a7621935c -->
+<h1>Join Group</h1>
+<!-- START_7f0d3a6203c9b62c8808dbc0c34fd826 -->
+<h2>Join a Group</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/api/groups/2/join" \
+    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
+    -H "Content-Type: application/json" \
+    -d '{"invite_code":"et"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/api/groups/2/join");
+
+let headers = {
+    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "invite_code": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post("/api/groups/2/join", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+            "Content-Type" =&gt; "application/json",
+        ],
+    'json' =&gt; [
+            "invite_code" =&gt; "et",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/groups/{group}/join</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>invite_code</td>
+<td>string</td>
+<td>optional</td>
+<td>nullable The invite_code to join a group.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7f0d3a6203c9b62c8808dbc0c34fd826 -->
 <h1>general</h1>
 <!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
 <h2>Handle a registration request for the application.</h2>
@@ -674,70 +749,6 @@ print_r(json_decode((string) $body));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/logout</code></p>
 <!-- END_61739f3220a224b34228600649230ad1 -->
-<!-- START_7f0d3a6203c9b62c8808dbc0c34fd826 -->
-<h2>api/groups/{group}/join</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "/api/groups/2/join" \
-    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
-    -H "Content-Type: application/json" \
-    -d '{"invite_code":"enim"}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2/join");
-
-let headers = {
-    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-let body = {
-    "invite_code": "enim"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/groups/2/join", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-            "Content-Type" =&gt; "application/json",
-        ],
-    'json' =&gt; [
-            "invite_code" =&gt; "enim",
-        ],
-]);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST api/groups/{group}/join</code></p>
-<h4>Body Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>invite_code</td>
-<td>string</td>
-<td>optional</td>
-<td>nullable The invite_code to join a group.</td>
-</tr>
-</tbody>
-</table>
-<!-- END_7f0d3a6203c9b62c8808dbc0c34fd826 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

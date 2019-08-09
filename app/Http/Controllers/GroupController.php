@@ -11,7 +11,6 @@ use App\Http\Resources\GroupResource;
 /**
  * @group Groups
  * 
- * @authenticated
  * APIs for interacting and managing saving groups
  */
 class GroupController extends Controller
@@ -19,6 +18,7 @@ class GroupController extends Controller
     /**
      * Display a listing of the group.
      *
+     * @authenticated
      * @queryParam page The page number to return
      * @return \Illuminate\Http\Response
      */
@@ -32,6 +32,7 @@ class GroupController extends Controller
     /**
      * Store a newly created group in database.
      *
+     * @authenticated
      * @param \App\Http\Requests\CreateGroup $request
      * @return \Illuminate\Http\Response
      */
@@ -61,6 +62,7 @@ class GroupController extends Controller
     /**
      * Display the group resource.
      *
+     * @authenticated
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
@@ -79,6 +81,7 @@ class GroupController extends Controller
     /**
      * Update the specified group in storage.
      *
+     * @authenticated
      * @param \App\Http\Requests\UpdateRequest $request
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
@@ -93,6 +96,7 @@ class GroupController extends Controller
     /**
      * Delete the specified group in storage.
      *
+     * @authenticated
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */

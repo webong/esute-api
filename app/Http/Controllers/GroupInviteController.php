@@ -15,6 +15,7 @@ class GroupInviteController extends Controller
     /**
      * Invite a list of emails to the group.
      *
+     * @authenticated
      * @response {
      *  "data": ["Group invite is being processed"]
      * }

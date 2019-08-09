@@ -13,6 +13,7 @@ class GroupUserController extends Controller
     /**
      * Display a listing of the group members.
      *
+     * @authenticated
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
