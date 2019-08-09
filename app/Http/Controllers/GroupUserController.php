@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Group;
 
+/**
+ * @group Group Members
+ */
 class GroupUserController extends Controller
 {
     /**

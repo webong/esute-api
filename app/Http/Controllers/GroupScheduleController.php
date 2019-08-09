@@ -7,8 +7,18 @@ use Illuminate\Http\Request;
 use App\Actions\GroupScheduleCycle;
 use App\Actions\StartGroupCycle;
 
+/**
+ * @group Group Scheduling
+ */
 class GroupScheduleController extends Controller
 {
+    /**
+     * Start a Group Saving
+     *
+     * @param Group $group
+     * @param StartGroupCycle $startGroupCycle
+     * @return void
+     */
     public function index(Group $group, StartGroupCycle $startGroupCycle)
     {
         $startGroupCycle->onQueue()->execute($group);
@@ -16,6 +26,13 @@ class GroupScheduleController extends Controller
         return response()->json('Group contribution activated');
     }
 
+    /**
+     * Update Group Start Date if not already started
+     *
+     * @param Request $request
+     * @param Group $group
+     * @return void
+     */
     public function update(Request $request, Group $group)
     {
         $this->validate($request, [

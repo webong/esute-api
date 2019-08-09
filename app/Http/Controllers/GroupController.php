@@ -10,7 +10,8 @@ use App\Http\Resources\GroupResource;
 
 /**
  * @group Saving Groups
- *
+ * 
+ * @authenticated
  * APIs for interacting and managing saving groups
  */
 class GroupController extends Controller
