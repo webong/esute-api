@@ -3,12 +3,21 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    public function boot()
+    {
+        parent::boot();
+
+        static::creating(function($user) {
+            $user->api_token = str_random(60);
+        });
+    }
 
     /**
      * The attributes that are mass assignable.

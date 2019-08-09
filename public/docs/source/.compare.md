@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 curl -X POST "/api/groups/2/invite" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"numquam","message":"quam"}'
+    -d '{"emails":"quia","message":"et"}'
 
 ```
 
@@ -45,8 +45,8 @@ let headers = {
 }
 
 let body = {
-    "emails": "numquam",
-    "message": "quam"
+    "emails": "quia",
+    "message": "et"
 }
 
 fetch(url, {
@@ -67,8 +67,8 @@ $response = $client->post("/api/groups/2/invite", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "emails" => "numquam",
-            "message" => "quam",
+            "emails" => "quia",
+            "message" => "et",
         ],
 ]);
 $body = $response->getBody();
@@ -114,6 +114,11 @@ curl -X GET -G "/api/groups/2/users" \
 ```javascript
 const url = new URL("/api/groups/2/users");
 
+    let params = {
+            "page": "5",
+        };
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
 let headers = {
     "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
     "Accept": "application/json",
@@ -135,6 +140,9 @@ $response = $client->get("/api/groups/2/users", [
     'headers' => [
             "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
         ],
+    'query' => [
+            "page" => "5",
+        ],
 ]);
 $body = $response->getBody();
 print_r(json_decode((string) $body));
@@ -154,6 +162,11 @@ print_r(json_decode((string) $body));
 ### HTTP Request
 `GET api/groups/{group}/users`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    page |  optional  | The page number to return
 
 <!-- END_25cacea309e94199433ca72c489534bc -->
 
@@ -273,7 +286,7 @@ print_r(json_decode((string) $body));
 curl -X PUT "/api/groups/2/schedule" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"update_date":"dignissimos"}'
+    -d '{"update_date":"sit"}'
 
 ```
 
@@ -287,7 +300,7 @@ let headers = {
 }
 
 let body = {
-    "update_date": "dignissimos"
+    "update_date": "sit"
 }
 
 fetch(url, {
@@ -308,7 +321,7 @@ $response = $client->put("/api/groups/2/schedule", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "update_date" => "dignissimos",
+            "update_date" => "sit",
         ],
 ]);
 $body = $response->getBody();
@@ -347,7 +360,7 @@ curl -X GET -G "/api/groups" \
 const url = new URL("/api/groups");
 
     let params = {
-            "page": "10",
+            "page": "11",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -373,7 +386,7 @@ $response = $client->get("/api/groups", [
             "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
         ],
     'query' => [
-            "page" => "10",
+            "page" => "11",
         ],
 ]);
 $body = $response->getBody();
@@ -412,7 +425,7 @@ Parameter | Status | Description
 curl -X POST "/api/groups" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"name":"quam","description":"aliquid","amount":96072794.51204607,"max_capacity":3,"start_date":"expedita","private":true}'
+    -d '{"name":"dolor","description":"quisquam","amount":25.5554658,"max_capacity":16,"start_date":"eaque","private":true}'
 
 ```
 
@@ -426,11 +439,11 @@ let headers = {
 }
 
 let body = {
-    "name": "quam",
-    "description": "aliquid",
-    "amount": 96072794.51204607,
-    "max_capacity": 3,
-    "start_date": "expedita",
+    "name": "dolor",
+    "description": "quisquam",
+    "amount": 25.5554658,
+    "max_capacity": 16,
+    "start_date": "eaque",
     "private": true
 }
 
@@ -452,11 +465,11 @@ $response = $client->post("/api/groups", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "quam",
-            "description" => "aliquid",
-            "amount" => "96072794.512046",
-            "max_capacity" => "3",
-            "start_date" => "expedita",
+            "name" => "dolor",
+            "description" => "quisquam",
+            "amount" => "25.5554658",
+            "max_capacity" => "16",
+            "start_date" => "eaque",
             "private" => "1",
         ],
 ]);
@@ -550,7 +563,7 @@ print_r(json_decode((string) $body));
 curl -X PUT "/api/groups/2" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"name":"perferendis","description":"et","amount":94787545.43678452,"max_capacity":12,"private":false}'
+    -d '{"name":"corrupti","description":"vel","amount":2668906.71171305,"max_capacity":15,"private":false}'
 
 ```
 
@@ -564,10 +577,10 @@ let headers = {
 }
 
 let body = {
-    "name": "perferendis",
-    "description": "et",
-    "amount": 94787545.43678452,
-    "max_capacity": 12,
+    "name": "corrupti",
+    "description": "vel",
+    "amount": 2668906.71171305,
+    "max_capacity": 15,
     "private": false
 }
 
@@ -589,10 +602,10 @@ $response = $client->put("/api/groups/2", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "perferendis",
-            "description" => "et",
-            "amount" => "94787545.436785",
-            "max_capacity" => "12",
+            "name" => "corrupti",
+            "description" => "vel",
+            "amount" => "2668906.7117131",
+            "max_capacity" => "15",
             "private" => "",
         ],
 ]);
@@ -631,7 +644,7 @@ Parameter | Type | Status | Description
 curl -X POST "/api/groups/2/join" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"invite_code":"consequatur"}'
+    -d '{"invite_code":"quo"}'
 
 ```
 
@@ -645,7 +658,7 @@ let headers = {
 }
 
 let body = {
-    "invite_code": "consequatur"
+    "invite_code": "quo"
 }
 
 fetch(url, {
@@ -666,7 +679,7 @@ $response = $client->post("/api/groups/2/join", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "invite_code" => "consequatur",
+            "invite_code" => "quo",
         ],
 ]);
 $body = $response->getBody();
@@ -739,7 +752,7 @@ print_r(json_decode((string) $body));
 ```bash
 curl -X POST "/api/login" \
     -H "Content-Type: application/json" \
-    -d '{"email":"et","description":"voluptatem"}'
+    -d '{"email":"quam","description":"nesciunt"}'
 
 ```
 
@@ -752,8 +765,8 @@ let headers = {
 }
 
 let body = {
-    "email": "et",
-    "description": "voluptatem"
+    "email": "quam",
+    "description": "nesciunt"
 }
 
 fetch(url, {
@@ -773,8 +786,8 @@ $response = $client->post("/api/login", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "email" => "et",
-            "description" => "voluptatem",
+            "email" => "quam",
+            "description" => "nesciunt",
         ],
 ]);
 $body = $response->getBody();
