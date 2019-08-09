@@ -22,10 +22,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('groups', 'GroupController@index');
-    Route::post('groups', 'GroupController@store');
-    Route::get('groups/{group}', 'GroupController@show');
-    Route::put('groups/{group}', 'GroupController@update');
+    Route::apiResource('groups', 'GroupController');
     Route::post('groups/{group}/schedule', 'GroupScheduleController@index');
     Route::put('groups/{group}/schedule', 'GroupScheduleController@update');
     Route::post('groups/{group}/invite', 'GroupInviteController');

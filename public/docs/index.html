@@ -169,10 +169,13 @@ $response = $client-&gt;get("/api/groups/2", [
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (400):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Unauthenticated."
+    "status": false,
+    "error": {
+        "message": "Unauthenticated."
+    }
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/groups/{group}</code></p>
@@ -373,10 +376,13 @@ $response = $client-&gt;get("/api/groups/2/users", [
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (400):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Unauthenticated."
+    "status": false,
+    "error": {
+        "message": "Unauthenticated."
+    }
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/groups/{group}/users</code></p>
@@ -412,10 +418,13 @@ $response = $client-&gt;get("/api/groups/2/users/1", [
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (400):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Unauthenticated."
+    "status": false,
+    "error": {
+        "message": "Unauthenticated."
+    }
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/groups/{group}/users/{user}</code></p>

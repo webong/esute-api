@@ -196,11 +196,14 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (401):
+> Example response (400):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "status": false,
+    "error": {
+        "message": "Unauthenticated."
+    }
 }
 ```
 
@@ -487,11 +490,14 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (401):
+> Example response (400):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "status": false,
+    "error": {
+        "message": "Unauthenticated."
+    }
 }
 ```
 
@@ -542,11 +548,14 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (401):
+> Example response (400):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "status": false,
+    "error": {
+        "message": "Unauthenticated."
+    }
 }
 ```
 

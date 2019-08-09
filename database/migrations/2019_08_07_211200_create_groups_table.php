@@ -24,6 +24,7 @@ class CreateGroupsTable extends Migration
             $table->boolean('private')->default(false);
             $table->string('status')->default('inactive');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

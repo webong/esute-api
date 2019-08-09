@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Role;
 use App\Group;
 use App\GroupUser;
 use App\Http\Requests\CreateGroup;
 use App\Http\Requests\UpdateGroup;
+use App\Http\Resources\GroupResource;
 
 class GroupController extends Controller
 {
@@ -18,7 +18,8 @@ class GroupController extends Controller
     public function index()
     {
         $groups = Group::searchable()->paginate();
-        return response()->json($groups);
+
+        return GroupResource::collection($groups);
     }
 
     /**
@@ -34,7 +35,11 @@ class GroupController extends Controller
         $group = Group::create($data);
 
         if (!$group) {
-            return response()->json('Error Creating Group', 500);
+            $response = [
+                'status' => false,
+                'error' => 'Error Creating Group'
+            ];
+            return response()->json($response, 500);
         }
 
         $groupUser = GroupUser::create([
@@ -43,7 +48,7 @@ class GroupController extends Controller
         ]);
         $groupUser->assignRole('admin');
 
-        return response()->json($group);
+        return new GroupResource($group);
     }
 
     /**
@@ -54,10 +59,14 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        if($group->private)
-            return response()->json('Group cannot be accessed', 403);
-            
-        return response()->json($group);
+        if ($group->private)
+            $response = [
+                'status' => false,
+                'error' => 'Group cannot be accessed'
+            ];
+            return response()->json($response, 403);
+
+        return new GroupResource($group);
     }
 
     /**
@@ -68,9 +77,9 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateGroup $request, Group $group)
-    { 
+    {
         $group->update($request->validated());
 
-        return request()->json(group);
+        return new GroupResource($group);
     }
 }
