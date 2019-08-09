@@ -88,6 +88,12 @@ class GroupController extends Controller
      */
     public function update(UpdateGroup $request, Group $group)
     {
+        if($this->checkAuthisGroupAdmin($group))
+            return response()->json([
+                'status' => false,
+                'error' => 'You are not authorized to edit this group.'], 
+                403);
+
         $group->update($request->validated());
 
         return new GroupResource($group);
@@ -102,6 +108,12 @@ class GroupController extends Controller
      */
     public function delete(Group $group)
     {
+        if($this->checkAuthisGroupAdmin($group))
+            return response()->json([
+                'status' => false,
+                'error' => 'You are not authorized to delete this group.'], 
+                403);
+
         $group->delete();
 
         return response()->json(null, 204);

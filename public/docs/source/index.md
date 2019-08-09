@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 curl -X POST "/api/groups/2/invite" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"et","message":"dolore"}'
+    -d '{"emails":"qui","message":"saepe"}'
 
 ```
 
@@ -45,8 +45,8 @@ let headers = {
 }
 
 let body = {
-    "emails": "et",
-    "message": "dolore"
+    "emails": "qui",
+    "message": "saepe"
 }
 
 fetch(url, {
@@ -67,8 +67,8 @@ $response = $client->post("/api/groups/2/invite", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "emails" => "et",
-            "message" => "dolore",
+            "emails" => "qui",
+            "message" => "saepe",
         ],
 ]);
 $body = $response->getBody();
@@ -271,7 +271,10 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X PUT "/api/groups/2/schedule" \
-    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P"
+    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
+    -H "Content-Type: application/json" \
+    -d '{"update_date":"qui"}'
+
 ```
 
 ```javascript
@@ -279,13 +282,18 @@ const url = new URL("/api/groups/2/schedule");
 
 let headers = {
     "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-    "Accept": "application/json",
     "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "update_date": "qui"
 }
 
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
@@ -297,6 +305,10 @@ $client = new \GuzzleHttp\Client();
 $response = $client->put("/api/groups/2/schedule", [
     'headers' => [
             "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+            "Content-Type" => "application/json",
+        ],
+    'json' => [
+            "update_date" => "qui",
         ],
 ]);
 $body = $response->getBody();
@@ -309,6 +321,11 @@ print_r(json_decode((string) $body));
 ### HTTP Request
 `PUT api/groups/{group}/schedule`
 
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    update_date | date |  optional  | The date savings would commence for the group
 
 <!-- END_58ec0449df2a33945d8d3ceb1f31b303 -->
 
@@ -330,7 +347,7 @@ curl -X GET -G "/api/groups" \
 const url = new URL("/api/groups");
 
     let params = {
-            "page": "16",
+            "page": "2",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -356,7 +373,7 @@ $response = $client->get("/api/groups", [
             "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
         ],
     'query' => [
-            "page" => "16",
+            "page" => "2",
         ],
 ]);
 $body = $response->getBody();
@@ -395,7 +412,7 @@ Parameter | Status | Description
 curl -X POST "/api/groups" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"natus","description":"et","amount":0,"max_capacity":5,"start_date":"nostrum","private":true}'
+    -d '{"name":"necessitatibus","description":"at","amount":1.182,"max_capacity":17,"start_date":"explicabo","private":false}'
 
 ```
 
@@ -409,12 +426,12 @@ let headers = {
 }
 
 let body = {
-    "name": "natus",
-    "description": "et",
-    "amount": 0,
-    "max_capacity": 5,
-    "start_date": "nostrum",
-    "private": true
+    "name": "necessitatibus",
+    "description": "at",
+    "amount": 1.182,
+    "max_capacity": 17,
+    "start_date": "explicabo",
+    "private": false
 }
 
 fetch(url, {
@@ -435,12 +452,12 @@ $response = $client->post("/api/groups", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "natus",
-            "description" => "et",
-            "amount" => "0",
-            "max_capacity" => "5",
-            "start_date" => "nostrum",
-            "private" => "1",
+            "name" => "necessitatibus",
+            "description" => "at",
+            "amount" => "1.182",
+            "max_capacity" => "17",
+            "start_date" => "explicabo",
+            "private" => "",
         ],
 ]);
 $body = $response->getBody();
@@ -533,7 +550,7 @@ print_r(json_decode((string) $body));
 curl -X PUT "/api/groups/2" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"quaerat","description":"incidunt","amount":72885830.8,"max_capacity":5,"private":true}'
+    -d '{"name":"voluptatem","description":"reiciendis","amount":4035.7,"max_capacity":13,"private":true}'
 
 ```
 
@@ -547,10 +564,10 @@ let headers = {
 }
 
 let body = {
-    "name": "quaerat",
-    "description": "incidunt",
-    "amount": 72885830.8,
-    "max_capacity": 5,
+    "name": "voluptatem",
+    "description": "reiciendis",
+    "amount": 4035.7,
+    "max_capacity": 13,
     "private": true
 }
 
@@ -572,10 +589,10 @@ $response = $client->put("/api/groups/2", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "quaerat",
-            "description" => "incidunt",
-            "amount" => "72885830.8",
-            "max_capacity" => "5",
+            "name" => "voluptatem",
+            "description" => "reiciendis",
+            "amount" => "4035.7",
+            "max_capacity" => "13",
             "private" => "1",
         ],
 ]);
@@ -614,7 +631,7 @@ Parameter | Type | Status | Description
 curl -X POST "/api/groups/2/join" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"invite_code":"et"}'
+    -d '{"invite_code":"qui"}'
 
 ```
 
@@ -628,7 +645,7 @@ let headers = {
 }
 
 let body = {
-    "invite_code": "et"
+    "invite_code": "qui"
 }
 
 fetch(url, {
@@ -649,7 +666,7 @@ $response = $client->post("/api/groups/2/join", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "invite_code" => "et",
+            "invite_code" => "qui",
         ],
 ]);
 $body = $response->getBody();

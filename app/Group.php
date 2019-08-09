@@ -22,7 +22,7 @@ class Group extends Model
     {
         return $this->belongsToMany('\App\User')
             ->using('\App\GroupUser')
-            ->withPivot(['user_id', 'cycle', 'role_id', 'status'])
+            ->withPivot(['user_id', 'cycle', 'status'])
             ->withTimestamps();
     }
 
@@ -30,7 +30,7 @@ class Group extends Model
     {
         return $this->belongsToMany('\App\Role')
             ->using('\App\GroupUser')
-            ->withPivot(['user_id', 'cycle', 'role_id','status'])
+            ->withPivot(['user_id', 'cycle','status'])
             ->withTimestamps();
     }
 

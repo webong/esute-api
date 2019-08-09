@@ -37,19 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role()
-    {
-        return $this->belongsToMany('\App\Role')
-            ->using('App\GroupUser')
-            ->withPivot(['group_id', 'cycle', 'role_id', 'status'])
-            ->withTimestamps();
-    }
-
 	public function groups()
 	{
         return $this->belongsToMany('\App\Group')
             ->using('App\GroupUser')
-            ->withPivot(['role_id', 'cycle', 'group_id', 'status'])
+            ->withPivot(['cycle', 'group_id', 'status'])
             ->withTimestamps();
     }
     

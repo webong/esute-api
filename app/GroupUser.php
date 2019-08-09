@@ -14,4 +14,9 @@ class GroupUser extends Pivot
     protected $table = 'group_user';
 
     protected $dates = ['created_at', 'updated_at'];
+
+    public function isGroupAdmin()
+    {
+        return $this->hasRole('admin');
+    }
 }

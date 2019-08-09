@@ -58,7 +58,7 @@
 <pre><code class="language-bash">curl -X POST "/api/groups/2/invite" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"et","message":"dolore"}'
+    -d '{"emails":"qui","message":"saepe"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups/2/invite");
 
@@ -69,8 +69,8 @@ let headers = {
 }
 
 let body = {
-    "emails": "et",
-    "message": "dolore"
+    "emails": "qui",
+    "message": "saepe"
 }
 
 fetch(url, {
@@ -88,8 +88,8 @@ $response = $client-&gt;post("/api/groups/2/invite", [
             "Content-Type" =&gt; "application/json",
         ],
     'json' =&gt; [
-            "emails" =&gt; "et",
-            "message" =&gt; "dolore",
+            "emails" =&gt; "qui",
+            "message" =&gt; "saepe",
         ],
 ]);
 $body = $response-&gt;getBody();
@@ -254,18 +254,26 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT "/api/groups/2/schedule" \
-    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P"</code></pre>
+    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
+    -H "Content-Type: application/json" \
+    -d '{"update_date":"qui"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups/2/schedule");
 
 let headers = {
     "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-    "Accept": "application/json",
     "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "update_date": "qui"
 }
 
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
@@ -274,12 +282,35 @@ $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put("/api/groups/2/schedule", [
     'headers' =&gt; [
             "Authorization" =&gt; "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+            "Content-Type" =&gt; "application/json",
+        ],
+    'json' =&gt; [
+            "update_date" =&gt; "qui",
         ],
 ]);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/groups/{group}/schedule</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>update_date</td>
+<td>date</td>
+<td>optional</td>
+<td>The date savings would commence for the group</td>
+</tr>
+</tbody>
+</table>
 <!-- END_58ec0449df2a33945d8d3ceb1f31b303 -->
 <h1>Groups</h1>
 <p>APIs for interacting and managing saving groups</p>
@@ -294,7 +325,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups");
 
     let params = {
-            "page": "16",
+            "page": "2",
         };
     Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
 
@@ -317,7 +348,7 @@ $response = $client-&gt;get("/api/groups", [
             "Authorization" =&gt; "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
         ],
     'query' =&gt; [
-            "page" =&gt; "16",
+            "page" =&gt; "2",
         ],
 ]);
 $body = $response-&gt;getBody();
@@ -358,7 +389,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-bash">curl -X POST "/api/groups" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"natus","description":"et","amount":0,"max_capacity":5,"start_date":"nostrum","private":true}'
+    -d '{"name":"necessitatibus","description":"at","amount":1.182,"max_capacity":17,"start_date":"explicabo","private":false}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups");
 
@@ -369,12 +400,12 @@ let headers = {
 }
 
 let body = {
-    "name": "natus",
-    "description": "et",
-    "amount": 0,
-    "max_capacity": 5,
-    "start_date": "nostrum",
-    "private": true
+    "name": "necessitatibus",
+    "description": "at",
+    "amount": 1.182,
+    "max_capacity": 17,
+    "start_date": "explicabo",
+    "private": false
 }
 
 fetch(url, {
@@ -392,12 +423,12 @@ $response = $client-&gt;post("/api/groups", [
             "Content-Type" =&gt; "application/json",
         ],
     'json' =&gt; [
-            "name" =&gt; "natus",
-            "description" =&gt; "et",
-            "amount" =&gt; "0",
-            "max_capacity" =&gt; "5",
-            "start_date" =&gt; "nostrum",
-            "private" =&gt; "1",
+            "name" =&gt; "necessitatibus",
+            "description" =&gt; "at",
+            "amount" =&gt; "1.182",
+            "max_capacity" =&gt; "17",
+            "start_date" =&gt; "explicabo",
+            "private" =&gt; "",
         ],
 ]);
 $body = $response-&gt;getBody();
@@ -504,7 +535,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-bash">curl -X PUT "/api/groups/2" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"name":"quaerat","description":"incidunt","amount":72885830.8,"max_capacity":5,"private":true}'
+    -d '{"name":"voluptatem","description":"reiciendis","amount":4035.7,"max_capacity":13,"private":true}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups/2");
 
@@ -515,10 +546,10 @@ let headers = {
 }
 
 let body = {
-    "name": "quaerat",
-    "description": "incidunt",
-    "amount": 72885830.8,
-    "max_capacity": 5,
+    "name": "voluptatem",
+    "description": "reiciendis",
+    "amount": 4035.7,
+    "max_capacity": 13,
     "private": true
 }
 
@@ -537,10 +568,10 @@ $response = $client-&gt;put("/api/groups/2", [
             "Content-Type" =&gt; "application/json",
         ],
     'json' =&gt; [
-            "name" =&gt; "quaerat",
-            "description" =&gt; "incidunt",
-            "amount" =&gt; "72885830.8",
-            "max_capacity" =&gt; "5",
+            "name" =&gt; "voluptatem",
+            "description" =&gt; "reiciendis",
+            "amount" =&gt; "4035.7",
+            "max_capacity" =&gt; "13",
             "private" =&gt; "1",
         ],
 ]);
@@ -603,7 +634,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-bash">curl -X POST "/api/groups/2/join" \
     -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P" \
     -H "Content-Type: application/json" \
-    -d '{"invite_code":"et"}'
+    -d '{"invite_code":"qui"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL("/api/groups/2/join");
 
@@ -614,7 +645,7 @@ let headers = {
 }
 
 let body = {
-    "invite_code": "et"
+    "invite_code": "qui"
 }
 
 fetch(url, {
@@ -632,7 +663,7 @@ $response = $client-&gt;post("/api/groups/2/join", [
             "Content-Type" =&gt; "application/json",
         ],
     'json' =&gt; [
-            "invite_code" =&gt; "et",
+            "invite_code" =&gt; "qui",
         ],
 ]);
 $body = $response-&gt;getBody();
