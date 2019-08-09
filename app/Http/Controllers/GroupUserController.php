@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Group;
+use App\Http\Resources\GroupUserResource;
 
 /**
  * @group Group Members
@@ -14,18 +15,17 @@ class GroupUserController extends Controller
      * Display a listing of the group members.
      *
      * @authenticated
+     * @queryParam page The page number to return
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
     public function index(Group $group)
     {
         $groupMembers = $group->members()
-            ->with(['contributions' => function ($query) use ($group) {
-                $query->where('group_id', $group->id)
-                    ->sum('amount');
-            }])
-            ->get();
-        return response()->json($groupMembers);
+            ->with('contributions')
+            ->paginate();
+
+        return GroupUserResource::collection($groupMembers);
     }
 
     /**
@@ -39,12 +39,9 @@ class GroupUserController extends Controller
     {
         $groupMember = $group->members()
             ->where('user_id', $user->id)
-            ->with(['contributions' => function ($query) use ($group) {
-                $query->where('group_id', $group->id)
-                    ->sum('amount');
-            }])
+            ->with('contributions')
             ->first();
 
-        return response()->json($groupMember);
+        return GroupUserResource($groupMember);
     }
 }

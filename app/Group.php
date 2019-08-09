@@ -36,7 +36,7 @@ class Group extends Model
 
     public function contributions()
     {
-        return $this->hasMany('\App\Contribution');
+        return $this->hasMany('\App\GroupContribution');
     }
 
     public function scopeSearchable($query)

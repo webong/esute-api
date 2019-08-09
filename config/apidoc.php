@@ -132,7 +132,7 @@ return [
                  * Specify headers to be added to the example requests
                  */
                 'headers' => [
-                    'Authorization' => 'Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P',
+                    'Authorization' => 'Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU',
                     // 'Api-Version' => 'v2',
                 ],
 

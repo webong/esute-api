@@ -47,7 +47,7 @@ class User extends Authenticatable
     
     public function contributions()
     {
-        return $this->hasMany('\App\Contribution');
+        return $this->hasMany('\App\GroupContribution');
     }
 
     public function generateToken()
