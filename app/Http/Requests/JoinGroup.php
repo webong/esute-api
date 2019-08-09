@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam invite_code string nullable The invite_code to join a group.
+ */
 class JoinGroup extends FormRequest
 {
     /**

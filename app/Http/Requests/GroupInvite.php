@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam emails string required The list of the emails to be invited to the group. Example example@gmail.com, jon@snow.com
+ * @bodyParam message string  The inivitation message.
+ */
 class GroupInvite extends FormRequest
 {
     /**
@@ -24,7 +28,7 @@ class GroupInvite extends FormRequest
     public function rules()
     {
         return [
-            'emails' => 'string',
+            'emails' => 'required|string',
             'message' => 'nullable|string',
         ];
     }

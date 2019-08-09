@@ -4,6 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam name string required The name of the group.
+ * @bodyParam description string  The description of the group.
+ * @bodyParam amount numeric The fixed amount for saving contribution.
+ * @bodyParam max_capacity int The maximum amount of group members.
+ * @bodyParam start_date date The date savings would commence for the group
+ * @bodyParam private boolean The group type if private or public. Defaults to false.
+ */
 class CreateGroup extends FormRequest
 {
     /**

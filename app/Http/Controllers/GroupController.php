@@ -8,11 +8,17 @@ use App\Http\Requests\CreateGroup;
 use App\Http\Requests\UpdateGroup;
 use App\Http\Resources\GroupResource;
 
+/**
+ * @group Saving Groups
+ *
+ * APIs for interacting and managing saving groups
+ */
 class GroupController extends Controller
 {
     /**
      * Display a listing of the group.
      *
+     * @queryParam page The page number to return
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -52,7 +58,7 @@ class GroupController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the group resource.
      *
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
@@ -64,13 +70,13 @@ class GroupController extends Controller
                 'status' => false,
                 'error' => 'Group cannot be accessed'
             ];
-            return response()->json($response, 403);
+        return response()->json($response, 403);
 
         return new GroupResource($group);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified group in storage.
      *
      * @param \App\Http\Requests\UpdateRequest $request
      * @param  \App\Group  $group
@@ -81,5 +87,18 @@ class GroupController extends Controller
         $group->update($request->validated());
 
         return new GroupResource($group);
+    }
+
+    /**
+     * Delete the specified group in storage.
+     *
+     * @param  \App\Group  $group
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Group $group)
+    {
+        $group->delete();
+
+        return response()->json(null, 204);
     }
 }

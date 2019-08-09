@@ -20,6 +20,115 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
+#Saving Groups
+
+APIs for interacting and managing saving groups
+<!-- START_a209a43173c7c4aaf7ab070d77fb7f0c -->
+## Display the group resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "/api/groups/2" \
+    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P"
+```
+
+```javascript
+const url = new URL("/api/groups/2");
+
+let headers = {
+    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get("/api/groups/2", [
+    'headers' => [
+            "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+        ],
+]);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+> Example response (400):
+
+```json
+{
+    "status": false,
+    "error": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/groups/{group}`
+
+
+<!-- END_a209a43173c7c4aaf7ab070d77fb7f0c -->
+
+<!-- START_5b84408c838201930093112a7621935c -->
+## Update the specified group in storage.
+
+> Example request:
+
+```bash
+curl -X PUT "/api/groups/2" \
+    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P"
+```
+
+```javascript
+const url = new URL("/api/groups/2");
+
+let headers = {
+    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->put("/api/groups/2", [
+    'headers' => [
+            "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
+        ],
+]);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+
+### HTTP Request
+`PUT api/groups/{group}`
+
+`PATCH api/groups/{group}`
+
+
+<!-- END_5b84408c838201930093112a7621935c -->
+
 #general
 <!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
 ## Handle a registration request for the application.
@@ -154,112 +263,6 @@ print_r(json_decode((string) $body));
 
 
 <!-- END_61739f3220a224b34228600649230ad1 -->
-
-<!-- START_a209a43173c7c4aaf7ab070d77fb7f0c -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET -G "/api/groups/2" \
-    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P"
-```
-
-```javascript
-const url = new URL("/api/groups/2");
-
-let headers = {
-    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get("/api/groups/2", [
-    'headers' => [
-            "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-        ],
-]);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-
-
-> Example response (400):
-
-```json
-{
-    "status": false,
-    "error": {
-        "message": "Unauthenticated."
-    }
-}
-```
-
-### HTTP Request
-`GET api/groups/{group}`
-
-
-<!-- END_a209a43173c7c4aaf7ab070d77fb7f0c -->
-
-<!-- START_15a6d20e1062b1b1e09e0282c204010d -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT "/api/groups/2" \
-    -H "Authorization: Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P"
-```
-
-```javascript
-const url = new URL("/api/groups/2");
-
-let headers = {
-    "Authorization": "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->put("/api/groups/2", [
-    'headers' => [
-            "Authorization" => "Bearer UnuNu9fiai5fe8kZTTUwEYK0hpQz5giWym4usm7qq7PBfVNoOchXnVr7jw4P",
-        ],
-]);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-
-
-
-### HTTP Request
-`PUT api/groups/{group}`
-
-
-<!-- END_15a6d20e1062b1b1e09e0282c204010d -->
 
 <!-- START_291738af5a803fa8d10caab6ab8c683f -->
 ## api/groups/{group}/schedule
@@ -495,9 +498,7 @@ print_r(json_decode((string) $body));
 ```json
 {
     "status": false,
-    "error": {
-        "message": "Unauthenticated."
-    }
+    "error": "Unauthenticated."
 }
 ```
 
@@ -553,9 +554,7 @@ print_r(json_decode((string) $body));
 ```json
 {
     "status": false,
-    "error": {
-        "message": "Unauthenticated."
-    }
+    "error": "Unauthenticated."
 }
 ```
 

@@ -61,9 +61,7 @@ class Handler extends ExceptionHandler
 
             $json = [
                 'status' => false,
-                'error' => [
-                    'message' => $message ?? $exception->getMessage(),
-                ],
+                'error' => $message ?? $exception->getMessage(),
             ];
 
             if (config('app.debug')) {
