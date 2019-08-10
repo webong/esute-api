@@ -10,15 +10,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public function boot()
-    {
-        parent::boot();
-
-        static::creating(function($user) {
-            $user->api_token = str_random(60);
-        });
-    }
-
     /**
      * The attributes that are mass assignable.
      *
