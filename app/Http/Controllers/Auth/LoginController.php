@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use App\Http\Resources\UserResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -54,11 +55,10 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             $user = $this->guard()->user();
-            $user->generateToken();
 
-            return response()->json([
-                'data' => $user->toArray(),
-            ]);
+            $user->generateToken();
+    
+            return UserResource::make($user);
         }
 
         return $this->sendFailedLoginResponse($request);
@@ -72,7 +72,7 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $user = Auth::guard('api')->user();
+        $user = Auth::user();
 
         if ($user) {
             $user->api_token = null;
