@@ -73,8 +73,14 @@ class RegisterController extends Controller
         ]);
     }
 
-        /**
+    /**
      * Handle a registration request for the application.
+     *
+     * @bodyParam name string required The email of the user.
+     * @bodyParam email string required The email of the user.
+     * @bodyParam password string  The password of the user.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -88,7 +94,7 @@ class RegisterController extends Controller
         // $this->guard()->login($user);
 
         return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+            ?: redirect($this->redirectPath());
     }
 
     protected function registered(Request $request, $user)

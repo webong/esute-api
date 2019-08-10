@@ -43,7 +43,7 @@ class LoginController extends Controller
      * Handle a login request to the application.
      *
      * @bodyParam email string required The email of the user.
-     * @bodyParam description string  The password of the user.
+     * @bodyParam password string  The password of the user.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      *
