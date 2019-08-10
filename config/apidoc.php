@@ -132,7 +132,7 @@ return [
                  * Specify headers to be added to the example requests
                  */
                 'headers' => [
-                    'Authorization' => 'Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU',
+                    'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
                     // 'Api-Version' => 'v2',
                 ],
 
@@ -180,6 +180,7 @@ return [
                      * Headers which should be sent with the API call.
                      */
                     'headers' => [
+                        'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
                         'Content-Type' => 'application/json',
                         'Accept' => 'application/json',
                         // 'key' => 'value',
@@ -196,7 +197,8 @@ return [
                      * Query parameters which should be sent with the API call.
                      */
                     'query' => [
-                        // 'key' => 'value',
+                        'page' => 1,
+                        // 'api_token' => '31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
                     ],
 
                     /*

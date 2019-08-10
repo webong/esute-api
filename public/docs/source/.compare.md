@@ -29,7 +29,7 @@ Welcome to the generated API reference.
 ```bash
 curl -X POST "/api/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"veritatis","email":"corrupti","password":"corporis"}'
+    -d '{"name":"veritatis","email":"omnis","password":"est"}'
 
 ```
 
@@ -43,8 +43,8 @@ let headers = {
 
 let body = {
     "name": "veritatis",
-    "email": "corrupti",
-    "password": "corporis"
+    "email": "omnis",
+    "password": "est"
 }
 
 fetch(url, {
@@ -65,8 +65,8 @@ $response = $client->post("/api/register", [
         ],
     'json' => [
             "name" => "veritatis",
-            "email" => "corrupti",
-            "password" => "corporis",
+            "email" => "omnis",
+            "password" => "est",
         ],
 ]);
 $body = $response->getBody();
@@ -97,7 +97,7 @@ Parameter | Type | Status | Description
 ```bash
 curl -X POST "/api/login" \
     -H "Content-Type: application/json" \
-    -d '{"email":"est","password":"dolores"}'
+    -d '{"email":"excepturi","password":"et"}'
 
 ```
 
@@ -110,8 +110,8 @@ let headers = {
 }
 
 let body = {
-    "email": "est",
-    "password": "dolores"
+    "email": "excepturi",
+    "password": "et"
 }
 
 fetch(url, {
@@ -131,8 +131,8 @@ $response = $client->post("/api/login", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "email" => "est",
-            "password" => "dolores",
+            "email" => "excepturi",
+            "password" => "et",
         ],
 ]);
 $body = $response->getBody();
@@ -161,14 +161,14 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST "/api/logout" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
 ```
 
 ```javascript
 const url = new URL("/api/logout");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -186,7 +186,7 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->post("/api/logout", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
 ]);
 $body = $response->getBody();
@@ -211,9 +211,9 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X POST "/api/groups/2/invite" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"aut","message":"et"}'
+    -d '{"emails":"amet","message":"sit"}'
 
 ```
 
@@ -221,14 +221,14 @@ curl -X POST "/api/groups/2/invite" \
 const url = new URL("/api/groups/2/invite");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
 }
 
 let body = {
-    "emails": "aut",
-    "message": "et"
+    "emails": "amet",
+    "message": "sit"
 }
 
 fetch(url, {
@@ -245,12 +245,12 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->post("/api/groups/2/invite", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "emails" => "aut",
-            "message" => "et",
+            "emails" => "amet",
+            "message" => "sit",
         ],
 ]);
 $body = $response->getBody();
@@ -290,19 +290,19 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET -G "/api/groups/2/users" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
 ```
 
 ```javascript
 const url = new URL("/api/groups/2/users");
 
     let params = {
-            "page": "6",
+            "page": "13",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -320,10 +320,10 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->get("/api/groups/2/users", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
     'query' => [
-            "page" => "6",
+            "page" => "13",
         ],
 ]);
 $body = $response->getBody();
@@ -332,11 +332,43 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "data": [
+        {
+            "id": 1,
+            "name": "Wisdom Aebong",
+            "email": "wisdomjebong@gmail.com",
+            "status": "inactive",
+            "current_cycle": "0",
+            "contributions": 0
+        },
+        {
+            "id": 3,
+            "name": "Example",
+            "email": "example@mail.com",
+            "status": "active",
+            "current_cycle": "0",
+            "contributions": 0
+        }
+    ],
+    "links": {
+        "first": "http:\/\/localhost\/api\/groups\/2\/users?page=1",
+        "last": "http:\/\/localhost\/api\/groups\/2\/users?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "path": "http:\/\/localhost\/api\/groups\/2\/users",
+        "per_page": 15,
+        "to": 2,
+        "total": 2
+    }
 }
 ```
 
@@ -358,14 +390,14 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET -G "/api/groups/2/users/1" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
 ```
 
 ```javascript
 const url = new URL("/api/groups/2/users/1");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -383,7 +415,7 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->get("/api/groups/2/users/1", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
 ]);
 $body = $response->getBody();
@@ -392,11 +424,18 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "data": {
+        "id": 1,
+        "name": "Wisdom Aebong",
+        "email": "wisdomjebong@gmail.com",
+        "status": "inactive",
+        "current_cycle": "0",
+        "contributions": 0
+    }
 }
 ```
 
@@ -415,14 +454,14 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X POST "/api/groups/2/schedule" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
 ```
 
 ```javascript
 const url = new URL("/api/groups/2/schedule");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -440,7 +479,7 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->post("/api/groups/2/schedule", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
 ]);
 $body = $response->getBody();
@@ -464,9 +503,9 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X PUT "/api/groups/2/schedule" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"update_date":"ad"}'
+    -d '{"update_date":"est"}'
 
 ```
 
@@ -474,13 +513,13 @@ curl -X PUT "/api/groups/2/schedule" \
 const url = new URL("/api/groups/2/schedule");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
 }
 
 let body = {
-    "update_date": "ad"
+    "update_date": "est"
 }
 
 fetch(url, {
@@ -497,11 +536,11 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->put("/api/groups/2/schedule", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "update_date" => "ad",
+            "update_date" => "est",
         ],
 ]);
 $body = $response->getBody();
@@ -533,19 +572,19 @@ APIs for interacting and managing saving groups
 
 ```bash
 curl -X GET -G "/api/groups" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
 ```
 
 ```javascript
 const url = new URL("/api/groups");
 
     let params = {
-            "page": "1",
+            "page": "7",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -563,10 +602,10 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->get("/api/groups", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
     'query' => [
-            "page" => "1",
+            "page" => "7",
         ],
 ]);
 $body = $response->getBody();
@@ -575,11 +614,55 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "data": [
+        {
+            "id": 1,
+            "name": "Group One",
+            "description": null,
+            "amount": 2000,
+            "start_date": "2019-12-08 00:00:00",
+            "completed_cycle": 0,
+            "max_capacity": null,
+            "private": false,
+            "status": "inactive",
+            "created_at": "2019-08-10 13:52:46",
+            "updated_at": "2019-08-10 13:52:46",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "name": "Group Two",
+            "description": null,
+            "amount": 2000,
+            "start_date": "2019-12-08 00:00:00",
+            "completed_cycle": 0,
+            "max_capacity": null,
+            "private": false,
+            "status": "inactive",
+            "created_at": "2019-08-10 13:56:09",
+            "updated_at": "2019-08-10 13:56:09",
+            "deleted_at": null
+        }
+    ],
+    "links": {
+        "first": "http:\/\/localhost\/api\/groups?page=1",
+        "last": "http:\/\/localhost\/api\/groups?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "path": "http:\/\/localhost\/api\/groups",
+        "per_page": 15,
+        "to": 2,
+        "total": 2
+    }
 }
 ```
 
@@ -602,9 +685,9 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST "/api/groups" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"name":"ipsum","description":"occaecati","amount":1921.018393373,"max_capacity":12,"start_date":"sed","private":false}'
+    -d '{"name":"ratione","description":"adipisci","amount":0.08651337,"max_capacity":2,"start_date":"deleniti","private":false}'
 
 ```
 
@@ -612,17 +695,17 @@ curl -X POST "/api/groups" \
 const url = new URL("/api/groups");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
 }
 
 let body = {
-    "name": "ipsum",
-    "description": "occaecati",
-    "amount": 1921.018393373,
-    "max_capacity": 12,
-    "start_date": "sed",
+    "name": "ratione",
+    "description": "adipisci",
+    "amount": 0.08651337,
+    "max_capacity": 2,
+    "start_date": "deleniti",
     "private": false
 }
 
@@ -640,15 +723,15 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->post("/api/groups", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "ipsum",
-            "description" => "occaecati",
-            "amount" => "1921.018393373",
-            "max_capacity" => "12",
-            "start_date" => "sed",
+            "name" => "ratione",
+            "description" => "adipisci",
+            "amount" => "0.08651337",
+            "max_capacity" => "2",
+            "start_date" => "deleniti",
             "private" => "",
         ],
 ]);
@@ -683,14 +766,14 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET -G "/api/groups/2" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
 ```
 
 ```javascript
 const url = new URL("/api/groups/2");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -708,7 +791,7 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->get("/api/groups/2", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
 ]);
 $body = $response->getBody();
@@ -717,11 +800,24 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "data": {
+        "id": 2,
+        "name": "Group Two",
+        "description": null,
+        "amount": 2000,
+        "start_date": "2019-12-08 00:00:00",
+        "completed_cycle": 0,
+        "max_capacity": null,
+        "private": false,
+        "status": "inactive",
+        "created_at": "2019-08-10 13:56:09",
+        "updated_at": "2019-08-10 13:56:09",
+        "deleted_at": null
+    }
 }
 ```
 
@@ -739,9 +835,9 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X PUT "/api/groups/2" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"name":"consequatur","description":"magni","amount":6397.6550764,"max_capacity":13,"private":false}'
+    -d '{"name":"porro","description":"deserunt","amount":477204831.6835126,"max_capacity":10,"private":false}'
 
 ```
 
@@ -749,16 +845,16 @@ curl -X PUT "/api/groups/2" \
 const url = new URL("/api/groups/2");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
 }
 
 let body = {
-    "name": "consequatur",
-    "description": "magni",
-    "amount": 6397.6550764,
-    "max_capacity": 13,
+    "name": "porro",
+    "description": "deserunt",
+    "amount": 477204831.6835126,
+    "max_capacity": 10,
     "private": false
 }
 
@@ -776,14 +872,14 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->put("/api/groups/2", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "consequatur",
-            "description" => "magni",
-            "amount" => "6397.6550764",
-            "max_capacity" => "13",
+            "name" => "porro",
+            "description" => "deserunt",
+            "amount" => "477204831.68351",
+            "max_capacity" => "10",
             "private" => "",
         ],
 ]);
@@ -820,9 +916,9 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST "/api/groups/2/join" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"invite_code":"culpa"}'
+    -d '{"invite_code":"maiores"}'
 
 ```
 
@@ -830,13 +926,13 @@ curl -X POST "/api/groups/2/join" \
 const url = new URL("/api/groups/2/join");
 
 let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
 }
 
 let body = {
-    "invite_code": "culpa"
+    "invite_code": "maiores"
 }
 
 fetch(url, {
@@ -853,11 +949,11 @@ fetch(url, {
 $client = new \GuzzleHttp\Client();
 $response = $client->post("/api/groups/2/join", [
     'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+            "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "invite_code" => "culpa",
+            "invite_code" => "maiores",
         ],
 ]);
 $body = $response->getBody();
