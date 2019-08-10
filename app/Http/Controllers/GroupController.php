@@ -6,6 +6,7 @@ use App\Group;
 use App\GroupUser;
 use App\Http\Requests\CreateGroup;
 use App\Http\Requests\UpdateGroup;
+use App\Http\Requests\DeleteGroup;
 use App\Http\Resources\GroupResource;
 
 /**
@@ -33,14 +34,12 @@ class GroupController extends Controller
      * Store a newly created group in database.
      *
      * @authenticated
-     * @param \App\Http\Requests\CreateGroup $request
+     * @param CreateGroup $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateGroup $request)
     {
-        $data = $request->validated();
-
-        $group = Group::create($data);
+        $group = Group::create($request->validated());
 
         if (!$group)
             return response()->json(['message' => 'Error Creating Group'], 500);
@@ -60,7 +59,7 @@ class GroupController extends Controller
      * Display the group resource.
      *
      * @authenticated
-     * @param  \App\Group  $group
+     * @param Group  $group
      * @return \Illuminate\Http\Response
      */
     public function show(Group $group)
@@ -75,15 +74,12 @@ class GroupController extends Controller
      * Update the specified group in storage.
      *
      * @authenticated
-     * @param \App\Http\Requests\UpdateRequest $request
-     * @param  \App\Group  $group
+     * @param UpdateRequest $request
+     * @param Group  $group
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateGroup $request, Group $group)
     {
-        if ($this->checkAuthisGroupAdmin($group))
-            return response()->json(['message' => 'You are not authorized to edit this group.'],403);
-
         $group->update($request->validated());
 
         return new GroupResource($group);
@@ -93,16 +89,12 @@ class GroupController extends Controller
      * Delete the specified group in storage.
      *
      * @authenticated
-     * @param  \App\Group  $group
+     * @param DeleteRequest $request
+     * @param Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function delete(Group $group)
+    public function delete(DeleteGroup $request, Group $group)
     {
-        if ($this->checkAuthisGroupAdmin($group))
-            return response()->json([
-                    'message' => 'You are not authorized to delete this group.'
-                ],403);
-
         $group->delete();
 
         return response()->json(null, 204);

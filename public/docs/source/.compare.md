@@ -20,6 +20,188 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
+#General
+<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
+## Handle a registration request for the application.
+
+> Example request:
+
+```bash
+curl -X POST "/api/register" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"veritatis","email":"corrupti","password":"corporis"}'
+
+```
+
+```javascript
+const url = new URL("/api/register");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "veritatis",
+    "email": "corrupti",
+    "password": "corporis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post("/api/register", [
+    'headers' => [
+            "Content-Type" => "application/json",
+        ],
+    'json' => [
+            "name" => "veritatis",
+            "email" => "corrupti",
+            "password" => "corporis",
+        ],
+]);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+
+### HTTP Request
+`POST api/register`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | The email of the user.
+    email | string |  required  | The email of the user.
+    password | string |  optional  | The password of the user.
+
+<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
+
+<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
+## Handle a login request to the application.
+
+> Example request:
+
+```bash
+curl -X POST "/api/login" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"est","password":"dolores"}'
+
+```
+
+```javascript
+const url = new URL("/api/login");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "est",
+    "password": "dolores"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post("/api/login", [
+    'headers' => [
+            "Content-Type" => "application/json",
+        ],
+    'json' => [
+            "email" => "est",
+            "password" => "dolores",
+        ],
+]);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+
+### HTTP Request
+`POST api/login`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    email | string |  required  | The email of the user.
+    password | string |  optional  | The password of the user.
+
+<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
+
+<!-- START_61739f3220a224b34228600649230ad1 -->
+## Log the user out of the application.
+
+> Example request:
+
+```bash
+curl -X POST "/api/logout" \
+    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
+```
+
+```javascript
+const url = new URL("/api/logout");
+
+let headers = {
+    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post("/api/logout", [
+    'headers' => [
+            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
+        ],
+]);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+
+
+### HTTP Request
+`POST api/logout`
+
+
+<!-- END_61739f3220a224b34228600649230ad1 -->
+
 #Group Invitation
 <!-- START_3266674e1b0d799355c17f2d42d7be9a -->
 ## Invite a list of emails to the group.
@@ -31,7 +213,7 @@ Welcome to the generated API reference.
 curl -X POST "/api/groups/2/invite" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"quia","message":"et"}'
+    -d '{"emails":"aut","message":"et"}'
 
 ```
 
@@ -45,7 +227,7 @@ let headers = {
 }
 
 let body = {
-    "emails": "quia",
+    "emails": "aut",
     "message": "et"
 }
 
@@ -67,7 +249,7 @@ $response = $client->post("/api/groups/2/invite", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "emails" => "quia",
+            "emails" => "aut",
             "message" => "et",
         ],
 ]);
@@ -81,7 +263,7 @@ print_r(json_decode((string) $body));
 
 ```json
 {
-    "data": [
+    "message": [
         "Group invite is being processed"
     ]
 }
@@ -115,7 +297,7 @@ curl -X GET -G "/api/groups/2/users" \
 const url = new URL("/api/groups/2/users");
 
     let params = {
-            "page": "5",
+            "page": "6",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -141,7 +323,7 @@ $response = $client->get("/api/groups/2/users", [
             "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
         ],
     'query' => [
-            "page" => "5",
+            "page" => "6",
         ],
 ]);
 $body = $response->getBody();
@@ -150,12 +332,11 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (400):
+> Example response (401):
 
 ```json
 {
-    "status": false,
-    "error": "Unauthenticated."
+    "message": "Unauthenticated."
 }
 ```
 
@@ -211,12 +392,11 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (400):
+> Example response (401):
 
 ```json
 {
-    "status": false,
-    "error": "Unauthenticated."
+    "message": "Unauthenticated."
 }
 ```
 
@@ -286,7 +466,7 @@ print_r(json_decode((string) $body));
 curl -X PUT "/api/groups/2/schedule" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"update_date":"sit"}'
+    -d '{"update_date":"ad"}'
 
 ```
 
@@ -300,7 +480,7 @@ let headers = {
 }
 
 let body = {
-    "update_date": "sit"
+    "update_date": "ad"
 }
 
 fetch(url, {
@@ -321,7 +501,7 @@ $response = $client->put("/api/groups/2/schedule", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "update_date" => "sit",
+            "update_date" => "ad",
         ],
 ]);
 $body = $response->getBody();
@@ -360,7 +540,7 @@ curl -X GET -G "/api/groups" \
 const url = new URL("/api/groups");
 
     let params = {
-            "page": "11",
+            "page": "1",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -386,7 +566,7 @@ $response = $client->get("/api/groups", [
             "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
         ],
     'query' => [
-            "page" => "11",
+            "page" => "1",
         ],
 ]);
 $body = $response->getBody();
@@ -395,12 +575,11 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (400):
+> Example response (401):
 
 ```json
 {
-    "status": false,
-    "error": "Unauthenticated."
+    "message": "Unauthenticated."
 }
 ```
 
@@ -425,7 +604,7 @@ Parameter | Status | Description
 curl -X POST "/api/groups" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"name":"dolor","description":"quisquam","amount":25.5554658,"max_capacity":16,"start_date":"eaque","private":true}'
+    -d '{"name":"ipsum","description":"occaecati","amount":1921.018393373,"max_capacity":12,"start_date":"sed","private":false}'
 
 ```
 
@@ -439,12 +618,12 @@ let headers = {
 }
 
 let body = {
-    "name": "dolor",
-    "description": "quisquam",
-    "amount": 25.5554658,
-    "max_capacity": 16,
-    "start_date": "eaque",
-    "private": true
+    "name": "ipsum",
+    "description": "occaecati",
+    "amount": 1921.018393373,
+    "max_capacity": 12,
+    "start_date": "sed",
+    "private": false
 }
 
 fetch(url, {
@@ -465,12 +644,12 @@ $response = $client->post("/api/groups", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "dolor",
-            "description" => "quisquam",
-            "amount" => "25.5554658",
-            "max_capacity" => "16",
-            "start_date" => "eaque",
-            "private" => "1",
+            "name" => "ipsum",
+            "description" => "occaecati",
+            "amount" => "1921.018393373",
+            "max_capacity" => "12",
+            "start_date" => "sed",
+            "private" => "",
         ],
 ]);
 $body = $response->getBody();
@@ -538,12 +717,11 @@ print_r(json_decode((string) $body));
 
 
 
-> Example response (400):
+> Example response (401):
 
 ```json
 {
-    "status": false,
-    "error": "Unauthenticated."
+    "message": "Unauthenticated."
 }
 ```
 
@@ -563,7 +741,7 @@ print_r(json_decode((string) $body));
 curl -X PUT "/api/groups/2" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"name":"corrupti","description":"vel","amount":2668906.71171305,"max_capacity":15,"private":false}'
+    -d '{"name":"consequatur","description":"magni","amount":6397.6550764,"max_capacity":13,"private":false}'
 
 ```
 
@@ -577,10 +755,10 @@ let headers = {
 }
 
 let body = {
-    "name": "corrupti",
-    "description": "vel",
-    "amount": 2668906.71171305,
-    "max_capacity": 15,
+    "name": "consequatur",
+    "description": "magni",
+    "amount": 6397.6550764,
+    "max_capacity": 13,
     "private": false
 }
 
@@ -602,10 +780,10 @@ $response = $client->put("/api/groups/2", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "corrupti",
-            "description" => "vel",
-            "amount" => "2668906.7117131",
-            "max_capacity" => "15",
+            "name" => "consequatur",
+            "description" => "magni",
+            "amount" => "6397.6550764",
+            "max_capacity" => "13",
             "private" => "",
         ],
 ]);
@@ -644,7 +822,7 @@ Parameter | Type | Status | Description
 curl -X POST "/api/groups/2/join" \
     -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU" \
     -H "Content-Type: application/json" \
-    -d '{"invite_code":"quo"}'
+    -d '{"invite_code":"culpa"}'
 
 ```
 
@@ -658,7 +836,7 @@ let headers = {
 }
 
 let body = {
-    "invite_code": "quo"
+    "invite_code": "culpa"
 }
 
 fetch(url, {
@@ -679,7 +857,7 @@ $response = $client->post("/api/groups/2/join", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "invite_code" => "quo",
+            "invite_code" => "culpa",
         ],
 ]);
 $body = $response->getBody();
@@ -699,162 +877,5 @@ Parameter | Type | Status | Description
     invite_code | string |  optional  | nullable The invite_code to join a group.
 
 <!-- END_7f0d3a6203c9b62c8808dbc0c34fd826 -->
-
-#general
-<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
-## Handle a registration request for the application.
-
-> Example request:
-
-```bash
-curl -X POST "/api/register" 
-```
-
-```javascript
-const url = new URL("/api/register");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->post("/api/register", [
-]);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-
-
-
-### HTTP Request
-`POST api/register`
-
-
-<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
-
-<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
-## Handle a login request to the application.
-
-> Example request:
-
-```bash
-curl -X POST "/api/login" \
-    -H "Content-Type: application/json" \
-    -d '{"email":"quam","description":"nesciunt"}'
-
-```
-
-```javascript
-const url = new URL("/api/login");
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-let body = {
-    "email": "quam",
-    "description": "nesciunt"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->post("/api/login", [
-    'headers' => [
-            "Content-Type" => "application/json",
-        ],
-    'json' => [
-            "email" => "quam",
-            "description" => "nesciunt",
-        ],
-]);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-
-
-
-### HTTP Request
-`POST api/login`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    email | string |  required  | The email of the user.
-    description | string |  optional  | The password of the user.
-
-<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
-
-<!-- START_61739f3220a224b34228600649230ad1 -->
-## Log the user out of the application.
-
-> Example request:
-
-```bash
-curl -X POST "/api/logout" \
-    -H "Authorization: Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU"
-```
-
-```javascript
-const url = new URL("/api/logout");
-
-let headers = {
-    "Authorization": "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->post("/api/logout", [
-    'headers' => [
-            "Authorization" => "Bearer UAs9Bk0uRYQTXuqzrXyYnKrNDAoJQF53iAM5bh11FUPjlz5Jxn60sZ0S5HqU",
-        ],
-]);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-
-
-
-### HTTP Request
-`POST api/logout`
-
-
-<!-- END_61739f3220a224b34228600649230ad1 -->
 
 

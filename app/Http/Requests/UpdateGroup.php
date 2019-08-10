@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Concerns\VerifyGroupAdmin;
 
 /**
  * @bodyParam name string required The name of the group.
@@ -13,6 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class UpdateGroup extends FormRequest
 {
+    use VerifyGroupAdmin;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -20,7 +22,7 @@ class UpdateGroup extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->authUserIsAdmin();
     }
 
     /**
@@ -37,5 +39,17 @@ class UpdateGroup extends FormRequest
             'max_capacity' => 'nullable|integer',
             'private' => 'boolean'
         ];
+    }
+
+        /**
+     * Handle a failed authorization attempt.
+     *
+     * @return void
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    protected function failedAuthorization()
+    {
+        throw new AuthorizationException('This action is unauthorized.');
     }
 }
