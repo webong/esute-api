@@ -17,7 +17,7 @@ class CreateGroupUserTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('group_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('cycle')->default(1);
+            $table->string('cycle')->default(0);
             $table->string('status')->default('inactive');
             $table->timestamps();
 
