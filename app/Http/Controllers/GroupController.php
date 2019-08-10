@@ -8,6 +8,7 @@ use App\Http\Requests\CreateGroup;
 use App\Http\Requests\UpdateGroup;
 use App\Http\Requests\DeleteGroup;
 use App\Http\Resources\GroupResource;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @group Groups
