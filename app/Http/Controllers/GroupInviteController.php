@@ -17,13 +17,13 @@ class GroupInviteController extends Controller
      *
      * @authenticated
      * @response {
-     *  "data": ["Group invite is being processed"]
+     *  "message": ["Group invite is being processed"]
      * }
      */
     public function __invoke(GroupInvite $request, ProcessGroupInvite $processInvite, Group $group)
     {
         $processInvite->onQueue()->execute($request, $group, Auth::user());
 
-        return response()->json(['data' => 'Group invite is being processed.']);
+        return response()->json(['message' => 'Group invite is being processed.']);
     }
 }

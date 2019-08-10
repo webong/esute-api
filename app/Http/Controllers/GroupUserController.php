@@ -42,6 +42,6 @@ class GroupUserController extends Controller
             ->with('contributions')
             ->first();
 
-        return GroupUserResource($groupMember);
+        return GroupUserResource::make($groupMember);
     }
 }

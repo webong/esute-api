@@ -28,7 +28,7 @@ class GroupScheduleController extends Controller
 
         $startGroupCycle->onQueue()->execute($group);
 
-        return response()->json('Group contribution activated');
+        return response()->json(['message' => 'Group contribution activated']);
     }
 
     /**
@@ -48,12 +48,11 @@ class GroupScheduleController extends Controller
 
         if($this->checkAuthisGroupAdmin($group))
             return response()->json([
-                'status' => false,
-                'error' => 'You are not authorized to edit this group.'], 
-                403);
+                'message' => 'You are not authorized to edit this group.'
+            ], 403);
 
         if ($group->status = 'active')
-            return response()->json('You cannot update start date of an active group', 400);
+            return response()->json([ 'message' => 'You cannot update start date of an active group'], 400);
 
         $group->update(['start_date' => $request->update_date]);
 

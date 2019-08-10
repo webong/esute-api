@@ -42,13 +42,8 @@ class GroupController extends Controller
 
         $group = Group::create($data);
 
-        if (!$group) {
-            $response = [
-                'status' => false,
-                'error' => 'Error Creating Group'
-            ];
-            return response()->json($response, 500);
-        }
+        if (!$group)
+            return response()->json(['message' => 'Error Creating Group'], 500);
 
         $groupUser = GroupUser::create([
             'user_id' => Auth::id(),
@@ -56,7 +51,9 @@ class GroupController extends Controller
         ]);
         $groupUser->assignRole('admin');
 
-        return new GroupResource($group);
+        return GroupResource::make($group)
+            ->response()
+            ->setStatusCode(201);
     }
 
     /**
@@ -69,13 +66,9 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         if ($group->private)
-            $response = [
-                'status' => false,
-                'error' => 'Group cannot be accessed'
-            ];
-        return response()->json($response, 403);
+            return response()->json(['message' => 'Group cannot be accessed'], 403);
 
-        return new GroupResource($group);
+        return GroupResource::make($group);
     }
 
     /**
@@ -88,11 +81,8 @@ class GroupController extends Controller
      */
     public function update(UpdateGroup $request, Group $group)
     {
-        if($this->checkAuthisGroupAdmin($group))
-            return response()->json([
-                'status' => false,
-                'error' => 'You are not authorized to edit this group.'], 
-                403);
+        if ($this->checkAuthisGroupAdmin($group))
+            return response()->json(['message' => 'You are not authorized to edit this group.'],403);
 
         $group->update($request->validated());
 
@@ -108,11 +98,10 @@ class GroupController extends Controller
      */
     public function delete(Group $group)
     {
-        if($this->checkAuthisGroupAdmin($group))
+        if ($this->checkAuthisGroupAdmin($group))
             return response()->json([
-                'status' => false,
-                'error' => 'You are not authorized to delete this group.'], 
-                403);
+                    'message' => 'You are not authorized to delete this group.'
+                ],403);
 
         $group->delete();
 
