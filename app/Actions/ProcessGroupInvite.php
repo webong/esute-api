@@ -6,11 +6,9 @@ use App\User;
 use App\Group;
 use App\GroupInvite;
 use App\Jobs\SendGroupInvite;
-use Spatie\QueueableAction\QueueableAction;
 
 class ProcessGroupInvite
 {
-    use QueueableAction;
 
     protected $group;
 
@@ -23,7 +21,7 @@ class ProcessGroupInvite
         $this->group = $group;
         $this->sender = $sender;
 
-        $this->validateUniqueEmails(...$data->emails);
+        $this->validateUniqueEmails(explode(',', $data->emails));
         $this->sendInvite($this->confirmedEmails, $data->message);
     }
     
@@ -34,10 +32,11 @@ class ProcessGroupInvite
 
         foreach ($emails as $key => $email) {
             $email = trim($email);
+
             // Skip email if it belongs to sender
             if ($email == $this->sender) continue;
 
-            if (filter_var($emails, FILTER_VALIDATE_EMAIL)) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 if (!$this->confirmPreviousInviteByEmail($email)) {
                     if (is_null($this->groupUserExists($email))) {
                         $this->confirmedEmails[] = $email;
@@ -67,9 +66,9 @@ class ProcessGroupInvite
     private function groupUserExists($email)
     {
         return User::where('email', $email)
-            ->whereHas('group', function($query) {
-                $query->where('id', $this->group->id);
-            })->first();
+            ->with('groups')
+            ->where('id', $this->group->id)
+            ->first();
     }
 
     private function createGroupInvite($email)
@@ -88,8 +87,9 @@ class ProcessGroupInvite
             SendGroupInvite::dispatch(
                 $email, 
                 $groupinvite->code,
-                $this->group, $message, 
-                $this->user->name
+                $this->group, 
+                $message, 
+                $this->sender->name
             );
         }
     }

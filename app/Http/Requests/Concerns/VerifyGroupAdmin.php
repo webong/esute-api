@@ -9,9 +9,10 @@ trait VerifyGroupAdmin
 {
     protected function authUserIsAdmin()
     {
-        $group = $this->route->parameter('group');
-        return GroupUser::newQuery()->where('user_id', Auth::id())
+        $group = $this->group;
+        return (new GroupUser)->newQuery()->where('user_id', Auth::id())
             ->where('group_id', $group->id)
+            ->first()
             ->isGroupAdmin();
     }
 }

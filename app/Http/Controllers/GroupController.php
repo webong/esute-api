@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateGroup;
 use App\Http\Requests\DeleteGroup;
 use App\Http\Resources\GroupResource;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group Groups
@@ -40,20 +41,27 @@ class GroupController extends Controller
      */
     public function store(CreateGroup $request)
     {
-        $group = Group::create($request->validated());
+        DB::beginTransaction();
+        try {
+            $group = Group::create($request->validated());
 
-        if (!$group)
-            return response()->json(['message' => 'Error Creating Group'], 500);
+            if (!$group)
+                return response()->json(['message' => 'Error Creating Group'], 500);
 
-        $groupUser = GroupUser::create([
-            'user_id' => Auth::id(),
-            'group_id' => $group->id,
-        ]);
-        $groupUser->assignRole('admin');
-
-        return GroupResource::make($group)
-            ->response()
-            ->setStatusCode(201);
+            $groupUser = GroupUser::create([
+                'user_id' => Auth::id(),
+                'group_id' => $group->id,
+            ]);
+            $groupUser->assignRole('admin');
+            
+            DB::commit();
+    
+            return GroupResource::make($group)
+                ->response()
+                ->setStatusCode(201);
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
     }
 
     /**

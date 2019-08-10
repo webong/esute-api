@@ -53,6 +53,12 @@ Start the app server:
 php artisan server
 ```
 
+Start the Queue Worker:
+
+```sh
+php artisan queue:work
+```
+
 You're ready to go! Visit Esute API Documentation on your local instance, [here](http://localhost:8000/docs/index.html):
 
 Use Telescope on your local instance to monitor app activities like queues and mail locally, [Visit telscope here](http://localhost:8000/telescope):
