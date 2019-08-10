@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+// use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -47,29 +47,28 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($request->is('api/*') || $request->ajax() || $request->wantsJson()) {
+        // if ($request->is('api/*') || $request->ajax() || $request->wantsJson()) {
            
-            // Default response of 400
-            $code = 400;
+        //     // Default response of 400
+        //     $code = 400;
 
-            // If this exception is an instance of HttpException
-            if ($this->isHttpException($exception)) {
-            // Grab the HTTP status code from the Exception
-                $code = $exception->getStatusCode();
-                $message = $exception->getMessage();
-            }
+        //     // If this exception is an instance of HttpException
+        //     if ($this->isHttpException($exception)) {
+        //     // Grab the HTTP status code from the Exception
+        //         $code = $exception->getStatusCode();
+        //     }
 
-            $json = [
-                'status' => false,
-                'error' => $message ?? $exception->getMessage(),
-            ];
+        //     $json = [
+        //         'status' => false,
+        //         'error' => $exception->getMessage(),
+        //     ];
 
-            if (config('app.debug')) {
-                $json['trace'] = $exception->getTrace();
-                $json['code'] = $exception->getCode();
-            }
-                return response()->json($json, $code);
-        }
+        //     if (config('app.debug')) {
+        //         $json['trace'] = $exception->getTrace();
+        //         $json['code'] = $exception->getCode();
+        //     }
+        //         return response()->json($json, $code);
+        // }
 
         return parent::render($request, $exception);
     }
