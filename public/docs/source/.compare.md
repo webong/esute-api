@@ -29,7 +29,7 @@ Welcome to the generated API reference.
 ```bash
 curl -X POST "/api/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"veritatis","email":"omnis","password":"est"}'
+    -d '{"name":"beatae","email":"aut","password":"autem"}'
 
 ```
 
@@ -42,9 +42,9 @@ let headers = {
 }
 
 let body = {
-    "name": "veritatis",
-    "email": "omnis",
-    "password": "est"
+    "name": "beatae",
+    "email": "aut",
+    "password": "autem"
 }
 
 fetch(url, {
@@ -64,9 +64,9 @@ $response = $client->post("/api/register", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "veritatis",
-            "email" => "omnis",
-            "password" => "est",
+            "name" => "beatae",
+            "email" => "aut",
+            "password" => "autem",
         ],
 ]);
 $body = $response->getBody();
@@ -97,7 +97,7 @@ Parameter | Type | Status | Description
 ```bash
 curl -X POST "/api/login" \
     -H "Content-Type: application/json" \
-    -d '{"email":"excepturi","password":"et"}'
+    -d '{"email":"cumque","password":"mollitia"}'
 
 ```
 
@@ -110,8 +110,8 @@ let headers = {
 }
 
 let body = {
-    "email": "excepturi",
-    "password": "et"
+    "email": "cumque",
+    "password": "mollitia"
 }
 
 fetch(url, {
@@ -131,8 +131,8 @@ $response = $client->post("/api/login", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "email" => "excepturi",
-            "password" => "et",
+            "email" => "cumque",
+            "password" => "mollitia",
         ],
 ]);
 $body = $response->getBody();
@@ -213,7 +213,7 @@ print_r(json_decode((string) $body));
 curl -X POST "/api/groups/2/invite" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"amet","message":"sit"}'
+    -d '{"emails":"aut","message":"sed"}'
 
 ```
 
@@ -227,8 +227,8 @@ let headers = {
 }
 
 let body = {
-    "emails": "amet",
-    "message": "sit"
+    "emails": "aut",
+    "message": "sed"
 }
 
 fetch(url, {
@@ -249,8 +249,8 @@ $response = $client->post("/api/groups/2/invite", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "emails" => "amet",
-            "message" => "sit",
+            "emails" => "aut",
+            "message" => "sed",
         ],
 ]);
 $body = $response->getBody();
@@ -297,7 +297,7 @@ curl -X GET -G "/api/groups/2/users" \
 const url = new URL("/api/groups/2/users");
 
     let params = {
-            "page": "13",
+            "page": "5",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -323,7 +323,7 @@ $response = $client->get("/api/groups/2/users", [
             "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
     'query' => [
-            "page" => "13",
+            "page" => "5",
         ],
 ]);
 $body = $response->getBody();
@@ -505,7 +505,7 @@ print_r(json_decode((string) $body));
 curl -X PUT "/api/groups/2/schedule" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"update_date":"est"}'
+    -d '{"update_date":"quo"}'
 
 ```
 
@@ -519,7 +519,7 @@ let headers = {
 }
 
 let body = {
-    "update_date": "est"
+    "update_date": "quo"
 }
 
 fetch(url, {
@@ -540,7 +540,7 @@ $response = $client->put("/api/groups/2/schedule", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "update_date" => "est",
+            "update_date" => "quo",
         ],
 ]);
 $body = $response->getBody();
@@ -579,7 +579,7 @@ curl -X GET -G "/api/groups" \
 const url = new URL("/api/groups");
 
     let params = {
-            "page": "7",
+            "page": "15",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -605,7 +605,7 @@ $response = $client->get("/api/groups", [
             "Authorization" => "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
         ],
     'query' => [
-            "page" => "7",
+            "page" => "15",
         ],
 ]);
 $body = $response->getBody();
@@ -646,6 +646,76 @@ print_r(json_decode((string) $body));
             "created_at": "2019-08-10 13:56:09",
             "updated_at": "2019-08-10 13:56:09",
             "deleted_at": null
+        },
+        {
+            "id": 4,
+            "name": "at",
+            "description": "Mock Turtle in a game of croquet she was not otherwise than what it meant till now.' 'If.",
+            "amount": 5088,
+            "start_date": "1994-03-29 00:00:00",
+            "completed_cycle": 0,
+            "max_capacity": null,
+            "private": false,
+            "status": "inactive",
+            "created_at": "2019-08-10 14:35:43",
+            "updated_at": "2019-08-10 14:35:43",
+            "deleted_at": null
+        },
+        {
+            "id": 6,
+            "name": "id",
+            "description": "Alice; 'I daresay it's a French mouse, come over with diamonds, and walked two and two, as the doubled-up soldiers were always getting up and walking off to other.",
+            "amount": 8817,
+            "start_date": "1996-12-03 00:00:00",
+            "completed_cycle": 0,
+            "max_capacity": null,
+            "private": false,
+            "status": "inactive",
+            "created_at": "2019-08-10 14:35:43",
+            "updated_at": "2019-08-10 14:35:43",
+            "deleted_at": null
+        },
+        {
+            "id": 7,
+            "name": "non",
+            "description": "Mouse, who was sitting on a crimson velvet cushion; and, last of all her coaxing. Hardly knowing what she was up.",
+            "amount": 4935,
+            "start_date": "1994-06-03 00:00:00",
+            "completed_cycle": 0,
+            "max_capacity": null,
+            "private": false,
+            "status": "inactive",
+            "created_at": "2019-08-10 14:35:43",
+            "updated_at": "2019-08-10 14:35:43",
+            "deleted_at": null
+        },
+        {
+            "id": 9,
+            "name": "porro",
+            "description": "However, 'jury-men' would have made a dreadfully ugly child: but it puzzled her a good opportunity for making her escape; so she began thinking.",
+            "amount": 8828,
+            "start_date": "2012-06-04 00:00:00",
+            "completed_cycle": 0,
+            "max_capacity": null,
+            "private": false,
+            "status": "inactive",
+            "created_at": "2019-08-10 14:35:43",
+            "updated_at": "2019-08-10 14:35:43",
+            "deleted_at": null
+        },
+        {
+            "id": 11,
+            "name": "quos",
+            "description": "I will prosecute YOU.--Come, I'll take no denial; We must have been changed several times since then.' 'What do you know about this.",
+            "amount": 5595,
+            "start_date": "1975-11-01 00:00:00",
+            "completed_cycle": 0,
+            "max_capacity": null,
+            "private": false,
+            "status": "inactive",
+            "created_at": "2019-08-10 14:35:43",
+            "updated_at": "2019-08-10 14:35:43",
+            "deleted_at": null
         }
     ],
     "links": {
@@ -660,8 +730,8 @@ print_r(json_decode((string) $body));
         "last_page": 1,
         "path": "http:\/\/localhost\/api\/groups",
         "per_page": 15,
-        "to": 2,
-        "total": 2
+        "to": 7,
+        "total": 7
     }
 }
 ```
@@ -687,7 +757,7 @@ Parameter | Status | Description
 curl -X POST "/api/groups" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"name":"ratione","description":"adipisci","amount":0.08651337,"max_capacity":2,"start_date":"deleniti","private":false}'
+    -d '{"name":"architecto","description":"eius","amount":25834204.294560947,"max_capacity":3,"start_date":"error","private":false}'
 
 ```
 
@@ -701,11 +771,11 @@ let headers = {
 }
 
 let body = {
-    "name": "ratione",
-    "description": "adipisci",
-    "amount": 0.08651337,
-    "max_capacity": 2,
-    "start_date": "deleniti",
+    "name": "architecto",
+    "description": "eius",
+    "amount": 25834204.294560947,
+    "max_capacity": 3,
+    "start_date": "error",
     "private": false
 }
 
@@ -727,11 +797,11 @@ $response = $client->post("/api/groups", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "ratione",
-            "description" => "adipisci",
-            "amount" => "0.08651337",
-            "max_capacity" => "2",
-            "start_date" => "deleniti",
+            "name" => "architecto",
+            "description" => "eius",
+            "amount" => "25834204.294561",
+            "max_capacity" => "3",
+            "start_date" => "error",
             "private" => "",
         ],
 ]);
@@ -837,7 +907,7 @@ print_r(json_decode((string) $body));
 curl -X PUT "/api/groups/2" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"name":"porro","description":"deserunt","amount":477204831.6835126,"max_capacity":10,"private":false}'
+    -d '{"name":"nostrum","description":"suscipit","amount":225.15132724,"max_capacity":3,"private":false}'
 
 ```
 
@@ -851,10 +921,10 @@ let headers = {
 }
 
 let body = {
-    "name": "porro",
-    "description": "deserunt",
-    "amount": 477204831.6835126,
-    "max_capacity": 10,
+    "name": "nostrum",
+    "description": "suscipit",
+    "amount": 225.15132724,
+    "max_capacity": 3,
     "private": false
 }
 
@@ -876,10 +946,10 @@ $response = $client->put("/api/groups/2", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "name" => "porro",
-            "description" => "deserunt",
-            "amount" => "477204831.68351",
-            "max_capacity" => "10",
+            "name" => "nostrum",
+            "description" => "suscipit",
+            "amount" => "225.15132724",
+            "max_capacity" => "3",
             "private" => "",
         ],
 ]);
@@ -918,7 +988,7 @@ Parameter | Type | Status | Description
 curl -X POST "/api/groups/2/join" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"invite_code":"maiores"}'
+    -d '{"invite_code":"molestiae"}'
 
 ```
 
@@ -932,7 +1002,7 @@ let headers = {
 }
 
 let body = {
-    "invite_code": "maiores"
+    "invite_code": "molestiae"
 }
 
 fetch(url, {
@@ -953,7 +1023,7 @@ $response = $client->post("/api/groups/2/join", [
             "Content-Type" => "application/json",
         ],
     'json' => [
-            "invite_code" => "maiores",
+            "invite_code" => "molestiae",
         ],
 ]);
 $body = $response->getBody();
