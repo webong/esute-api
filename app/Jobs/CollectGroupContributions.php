@@ -17,7 +17,7 @@ class CollectGroupContributions implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param $groupList
      */
     public function __construct($groupList)
     {
@@ -32,10 +32,8 @@ class CollectGroupContributions implements ShouldQueue
     public function handle()
     {
         // Charge all members
-        foreach ($this->list as $key => $member) {
-            dispatch(function($member){
-               // Charge the member;
-            });
-        }
+        foreach ($this->list as $key => $member) dispatch(function($member){
+           // Charge the member
+        });
     }
 }

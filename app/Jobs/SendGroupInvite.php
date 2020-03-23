@@ -4,11 +4,11 @@ namespace App\Jobs;
 
 use App\Mail\GroupInvite;
 use Illuminate\Bus\Queueable;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Mail;
 
 class SendGroupInvite implements ShouldQueue
 {

@@ -114,10 +114,10 @@ class ProcessGroupInvite
     private function sendInvite($confirmedEmails, $message)
     {
         foreach ($confirmedEmails as $email) {
-            $groupinvite = $this->createGroupInvite($email);
+            $group_invite = $this->createGroupInvite($email);
             SendGroupInvite::dispatch(
                 $email,
-                $groupinvite->code,
+                $group_invite->code,
                 $this->group,
                 $message,
                 $this->sender->name
