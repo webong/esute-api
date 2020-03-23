@@ -17,7 +17,7 @@ toc_footers:
 # Info
 
 Welcome to the generated API reference.
-[Get Postman Collection](http://localhost/docs/collection.json)
+[Get Postman Collection](http://127.0.0.1:8000/docs/collection.json)
 
 <!-- END_INFO -->
 
@@ -32,17 +32,17 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X POST \
-    "http://localhost/api/groups/1/invite" \
+    "http://127.0.0.1:8000/api/groups/1/invite" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"emails":"aut","message":"aperiam"}'
+    -d '{"emails":"velit","message":"porro"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1/invite"
+    "http://127.0.0.1:8000/api/groups/1/invite"
 );
 
 let headers = {
@@ -52,8 +52,8 @@ let headers = {
 };
 
 let body = {
-    "emails": "aut",
-    "message": "aperiam"
+    "emails": "velit",
+    "message": "porro"
 }
 
 fetch(url, {
@@ -69,7 +69,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://localhost/api/groups/1/invite',
+    'http://127.0.0.1:8000/api/groups/1/invite',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -77,8 +77,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'emails' => 'aut',
-            'message' => 'aperiam',
+            'emails' => 'velit',
+            'message' => 'porro',
         ],
     ]
 );
@@ -119,7 +119,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/groups/1/users?page=14" \
+    -G "http://127.0.0.1:8000/api/groups/1/users?page=1" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -127,11 +127,11 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1/users"
+    "http://127.0.0.1:8000/api/groups/1/users"
 );
 
 let params = {
-    "page": "14",
+    "page": "1",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -154,7 +154,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://localhost/api/groups/1/users',
+    'http://127.0.0.1:8000/api/groups/1/users',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -162,7 +162,7 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'page'=> '14',
+            'page'=> '1',
         ],
     ]
 );
@@ -171,11 +171,11 @@ print_r(json_decode((string) $body));
 ```
 
 
-> Example response (500):
+> Example response (401):
 
 ```json
 {
-    "message": "Server Error"
+    "message": "Unauthenticated."
 }
 ```
 
@@ -197,7 +197,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/groups/1/users/1" \
+    -G "http://127.0.0.1:8000/api/groups/1/users/1" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -205,7 +205,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1/users/1"
+    "http://127.0.0.1:8000/api/groups/1/users/1"
 );
 
 let headers = {
@@ -226,7 +226,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://localhost/api/groups/1/users/1',
+    'http://127.0.0.1:8000/api/groups/1/users/1',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -240,11 +240,11 @@ print_r(json_decode((string) $body));
 ```
 
 
-> Example response (500):
+> Example response (401):
 
 ```json
 {
-    "message": "Server Error"
+    "message": "Unauthenticated."
 }
 ```
 
@@ -265,7 +265,7 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X POST \
-    "http://localhost/api/groups/1/schedule" \
+    "http://127.0.0.1:8000/api/groups/1/schedule" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -273,7 +273,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1/schedule"
+    "http://127.0.0.1:8000/api/groups/1/schedule"
 );
 
 let headers = {
@@ -294,7 +294,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://localhost/api/groups/1/schedule',
+    'http://127.0.0.1:8000/api/groups/1/schedule',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -323,17 +323,17 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/groups/1/schedule" \
+    "http://127.0.0.1:8000/api/groups/1/schedule" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"update_date":"voluptatum"}'
+    -d '{"update_date":"in"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1/schedule"
+    "http://127.0.0.1:8000/api/groups/1/schedule"
 );
 
 let headers = {
@@ -343,7 +343,7 @@ let headers = {
 };
 
 let body = {
-    "update_date": "voluptatum"
+    "update_date": "in"
 }
 
 fetch(url, {
@@ -359,7 +359,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://localhost/api/groups/1/schedule',
+    'http://127.0.0.1:8000/api/groups/1/schedule',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -367,7 +367,7 @@ $response = $client->put(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'update_date' => 'voluptatum',
+            'update_date' => 'in',
         ],
     ]
 );
@@ -399,7 +399,7 @@ APIs for interacting and managing saving groups
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/groups?page=9" \
+    -G "http://127.0.0.1:8000/api/groups?page=14" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -407,11 +407,11 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups"
+    "http://127.0.0.1:8000/api/groups"
 );
 
 let params = {
-    "page": "9",
+    "page": "14",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -434,7 +434,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://localhost/api/groups',
+    'http://127.0.0.1:8000/api/groups',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -442,7 +442,7 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'page'=> '9',
+            'page'=> '14',
         ],
     ]
 );
@@ -451,11 +451,11 @@ print_r(json_decode((string) $body));
 ```
 
 
-> Example response (500):
+> Example response (401):
 
 ```json
 {
-    "message": "Server Error"
+    "message": "Unauthenticated."
 }
 ```
 
@@ -478,17 +478,17 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/groups" \
+    "http://127.0.0.1:8000/api/groups" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"exercitationem","description":"accusantium","amount":9698.15721,"max_capacity":18,"start_date":"hic","private":true}'
+    -d '{"name":"dolorem","description":"est","amount":198.56,"max_capacity":16,"start_date":"similique","private":false}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups"
+    "http://127.0.0.1:8000/api/groups"
 );
 
 let headers = {
@@ -498,12 +498,12 @@ let headers = {
 };
 
 let body = {
-    "name": "exercitationem",
-    "description": "accusantium",
-    "amount": 9698.15721,
-    "max_capacity": 18,
-    "start_date": "hic",
-    "private": true
+    "name": "dolorem",
+    "description": "est",
+    "amount": 198.56,
+    "max_capacity": 16,
+    "start_date": "similique",
+    "private": false
 }
 
 fetch(url, {
@@ -519,7 +519,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://localhost/api/groups',
+    'http://127.0.0.1:8000/api/groups',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -527,12 +527,12 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'exercitationem',
-            'description' => 'accusantium',
-            'amount' => 9698.15721,
-            'max_capacity' => 18,
-            'start_date' => 'hic',
-            'private' => true,
+            'name' => 'dolorem',
+            'description' => 'est',
+            'amount' => 198.56,
+            'max_capacity' => 16,
+            'start_date' => 'similique',
+            'private' => false,
         ],
     ]
 );
@@ -565,7 +565,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/groups/1" \
+    -G "http://127.0.0.1:8000/api/groups/1" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -573,7 +573,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1"
+    "http://127.0.0.1:8000/api/groups/1"
 );
 
 let headers = {
@@ -594,7 +594,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://localhost/api/groups/1',
+    'http://127.0.0.1:8000/api/groups/1',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -608,11 +608,11 @@ print_r(json_decode((string) $body));
 ```
 
 
-> Example response (500):
+> Example response (401):
 
 ```json
 {
-    "message": "Server Error"
+    "message": "Unauthenticated."
 }
 ```
 
@@ -630,17 +630,17 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/groups/1" \
+    "http://127.0.0.1:8000/api/groups/1" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"odit","description":"qui","amount":16350.184913,"max_capacity":6,"private":true}'
+    -d '{"name":"rerum","description":"hic","amount":36010616.04024355,"max_capacity":19,"private":true}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1"
+    "http://127.0.0.1:8000/api/groups/1"
 );
 
 let headers = {
@@ -650,10 +650,10 @@ let headers = {
 };
 
 let body = {
-    "name": "odit",
-    "description": "qui",
-    "amount": 16350.184913,
-    "max_capacity": 6,
+    "name": "rerum",
+    "description": "hic",
+    "amount": 36010616.04024355,
+    "max_capacity": 19,
     "private": true
 }
 
@@ -670,7 +670,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://localhost/api/groups/1',
+    'http://127.0.0.1:8000/api/groups/1',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -678,10 +678,10 @@ $response = $client->put(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'odit',
-            'description' => 'qui',
-            'amount' => 16350.184913,
-            'max_capacity' => 6,
+            'name' => 'rerum',
+            'description' => 'hic',
+            'amount' => 36010616.04024355,
+            'max_capacity' => 19,
             'private' => true,
         ],
     ]
@@ -719,17 +719,17 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/groups/1/join" \
+    "http://127.0.0.1:8000/api/groups/1/join" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"invite_code":"modi"}'
+    -d '{"invite_code":"cumque"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/groups/1/join"
+    "http://127.0.0.1:8000/api/groups/1/join"
 );
 
 let headers = {
@@ -739,7 +739,7 @@ let headers = {
 };
 
 let body = {
-    "invite_code": "modi"
+    "invite_code": "cumque"
 }
 
 fetch(url, {
@@ -755,7 +755,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://localhost/api/groups/1/join',
+    'http://127.0.0.1:8000/api/groups/1/join',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
@@ -763,7 +763,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'invite_code' => 'modi',
+            'invite_code' => 'cumque',
         ],
     ]
 );
@@ -793,15 +793,15 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/register" \
+    "http://127.0.0.1:8000/api/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"et","email":"voluptate","password":"sunt"}'
+    -d '{"name":"aliquid","email":"rem","password":"perspiciatis"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/register"
+    "http://127.0.0.1:8000/api/register"
 );
 
 let headers = {
@@ -810,9 +810,9 @@ let headers = {
 };
 
 let body = {
-    "name": "et",
-    "email": "voluptate",
-    "password": "sunt"
+    "name": "aliquid",
+    "email": "rem",
+    "password": "perspiciatis"
 }
 
 fetch(url, {
@@ -828,15 +828,15 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://localhost/api/register',
+    'http://127.0.0.1:8000/api/register',
     [
         'headers' => [
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'name' => 'et',
-            'email' => 'voluptate',
-            'password' => 'sunt',
+            'name' => 'aliquid',
+            'email' => 'rem',
+            'password' => 'perspiciatis',
         ],
     ]
 );
@@ -865,15 +865,15 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/login" \
+    "http://127.0.0.1:8000/api/login" \
     -H "Content-Type: application/json" \
-    -d '{"email":"similique","password":"odit"}'
+    -d '{"email":"veniam","password":"harum"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/login"
+    "http://127.0.0.1:8000/api/login"
 );
 
 let headers = {
@@ -882,8 +882,8 @@ let headers = {
 };
 
 let body = {
-    "email": "similique",
-    "password": "odit"
+    "email": "veniam",
+    "password": "harum"
 }
 
 fetch(url, {
@@ -899,14 +899,14 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://localhost/api/login',
+    'http://127.0.0.1:8000/api/login',
     [
         'headers' => [
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'email' => 'similique',
-            'password' => 'odit',
+            'email' => 'veniam',
+            'password' => 'harum',
         ],
     ]
 );
@@ -934,7 +934,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/logout" \
+    "http://127.0.0.1:8000/api/logout" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -942,7 +942,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/logout"
+    "http://127.0.0.1:8000/api/logout"
 );
 
 let headers = {
@@ -963,7 +963,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://localhost/api/logout',
+    'http://127.0.0.1:8000/api/logout',
     [
         'headers' => [
             'Authorization' => 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',

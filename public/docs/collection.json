@@ -1,8 +1,8 @@
 {
     "variables": [],
     "info": {
-        "name": "Laravel API",
-        "_postman_id": "7f5feddb-7bce-44a6-93d7-6733d6281e52",
+        "name": "Group Savings App API",
+        "_postman_id": "e743fc23-4817-41bc-a91d-424b2251d500",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -16,7 +16,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group\/invite",
                             "query": []
                         },
@@ -37,7 +37,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"emails\": \"aut\",\n    \"message\": \"aperiam\"\n}"
+                            "raw": "{\n    \"emails\": \"velit\",\n    \"message\": \"porro\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -54,12 +54,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group\/users",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "14",
+                                    "value": "1",
                                     "description": "The page number to return",
                                     "disabled": false
                                 }
@@ -93,7 +93,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group\/users\/:user",
                             "query": []
                         },
@@ -131,7 +131,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group\/schedule",
                             "query": []
                         },
@@ -163,7 +163,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group\/schedule",
                             "query": []
                         },
@@ -184,7 +184,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"update_date\": \"voluptatum\"\n}"
+                            "raw": "{\n    \"update_date\": \"in\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -201,12 +201,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "9",
+                                    "value": "14",
                                     "description": "The page number to return",
                                     "disabled": false
                                 }
@@ -240,7 +240,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups",
                             "query": []
                         },
@@ -261,7 +261,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"exercitationem\",\n    \"description\": \"accusantium\",\n    \"amount\": 9698.15721,\n    \"max_capacity\": 18,\n    \"start_date\": \"hic\",\n    \"private\": true\n}"
+                            "raw": "{\n    \"name\": \"dolorem\",\n    \"description\": \"est\",\n    \"amount\": 198.56,\n    \"max_capacity\": 16,\n    \"start_date\": \"similique\",\n    \"private\": false\n}"
                         },
                         "description": "",
                         "response": []
@@ -272,7 +272,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group",
                             "query": []
                         },
@@ -304,7 +304,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group",
                             "query": []
                         },
@@ -325,7 +325,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"odit\",\n    \"description\": \"qui\",\n    \"amount\": 16350.184913,\n    \"max_capacity\": 6,\n    \"private\": true\n}"
+                            "raw": "{\n    \"name\": \"rerum\",\n    \"description\": \"hic\",\n    \"amount\": 36010616.04024355,\n    \"max_capacity\": 19,\n    \"private\": true\n}"
                         },
                         "description": "",
                         "response": []
@@ -342,7 +342,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/groups\/:group\/join",
                             "query": []
                         },
@@ -363,7 +363,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"invite_code\": \"modi\"\n}"
+                            "raw": "{\n    \"invite_code\": \"cumque\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -380,7 +380,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/register",
                             "query": []
                         },
@@ -393,7 +393,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"et\",\n    \"email\": \"voluptate\",\n    \"password\": \"sunt\"\n}"
+                            "raw": "{\n    \"name\": \"aliquid\",\n    \"email\": \"rem\",\n    \"password\": \"perspiciatis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -404,7 +404,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/login",
                             "query": []
                         },
@@ -417,7 +417,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"similique\",\n    \"password\": \"odit\"\n}"
+                            "raw": "{\n    \"email\": \"veniam\",\n    \"password\": \"harum\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -428,7 +428,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "127.0.0.1:8000",
                             "path": "api\/logout",
                             "query": []
                         },
