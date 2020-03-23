@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Group Savings App API",
-        "_postman_id": "e743fc23-4817-41bc-a91d-424b2251d500",
+        "_postman_id": "62abd7b1-591b-45a1-b160-39f60157386f",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -37,7 +37,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"emails\": \"velit\",\n    \"message\": \"porro\"\n}"
+                            "raw": "{\n    \"emails\": \"minima\",\n    \"message\": \"ipsum\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -59,7 +59,7 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "1",
+                                    "value": "12",
                                     "description": "The page number to return",
                                     "disabled": false
                                 }
@@ -184,7 +184,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"update_date\": \"in\"\n}"
+                            "raw": "{\n    \"update_date\": \"omnis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -206,7 +206,7 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "14",
+                                    "value": "10",
                                     "description": "The page number to return",
                                     "disabled": false
                                 }
@@ -261,7 +261,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"dolorem\",\n    \"description\": \"est\",\n    \"amount\": 198.56,\n    \"max_capacity\": 16,\n    \"start_date\": \"similique\",\n    \"private\": false\n}"
+                            "raw": "{\n    \"name\": \"at\",\n    \"description\": \"voluptas\",\n    \"amount\": 270276538,\n    \"max_capacity\": 13,\n    \"start_date\": \"reiciendis\",\n    \"private\": false\n}"
                         },
                         "description": "",
                         "response": []
@@ -325,7 +325,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"rerum\",\n    \"description\": \"hic\",\n    \"amount\": 36010616.04024355,\n    \"max_capacity\": 19,\n    \"private\": true\n}"
+                            "raw": "{\n    \"name\": \"repellendus\",\n    \"description\": \"corporis\",\n    \"amount\": 4334.712,\n    \"max_capacity\": 20,\n    \"private\": false\n}"
                         },
                         "description": "",
                         "response": []
@@ -363,7 +363,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"invite_code\": \"cumque\"\n}"
+                            "raw": "{\n    \"invite_code\": \"molestiae\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -393,7 +393,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"aliquid\",\n    \"email\": \"rem\",\n    \"password\": \"perspiciatis\"\n}"
+                            "raw": "{\n    \"name\": \"iste\",\n    \"email\": \"placeat\",\n    \"password\": \"quasi\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -417,7 +417,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"veniam\",\n    \"password\": \"harum\"\n}"
+                            "raw": "{\n    \"email\": \"et\",\n    \"password\": \"quam\"\n}"
                         },
                         "description": "",
                         "response": []

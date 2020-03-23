@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Group;
 use App\Http\Requests\GroupInvite;
 use App\Actions\ProcessGroupInvite;
-use Illuminate\Support\Facades\Auth;
+use Auth;
+use Illuminate\Http\JsonResponse;
 
 /**
  * @group Group Invitation
@@ -23,13 +24,11 @@ class GroupInviteController extends Controller
      * @param GroupInvite $request
      * @param ProcessGroupInvite $processInvite
      * @param Group $group
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function __invoke(GroupInvite $request, ProcessGroupInvite $processInvite, Group $group)
     {
-        $user = Auth::user();
-
-        $processInvite->execute($request, $group, $user);
+        $processInvite->execute($request->toArray(), $group, Auth::user());
 
         return response()->json(['message' => 'Group invite is being processed.']);
     }

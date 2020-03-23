@@ -36,7 +36,7 @@ curl -X POST \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"emails":"velit","message":"porro"}'
+    -d '{"emails":"minima","message":"ipsum"}'
 
 ```
 
@@ -52,8 +52,8 @@ let headers = {
 };
 
 let body = {
-    "emails": "velit",
-    "message": "porro"
+    "emails": "minima",
+    "message": "ipsum"
 }
 
 fetch(url, {
@@ -77,8 +77,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'emails' => 'velit',
-            'message' => 'porro',
+            'emails' => 'minima',
+            'message' => 'ipsum',
         ],
     ]
 );
@@ -119,7 +119,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/groups/1/users?page=1" \
+    -G "http://127.0.0.1:8000/api/groups/1/users?page=12" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -131,7 +131,7 @@ const url = new URL(
 );
 
 let params = {
-    "page": "1",
+    "page": "12",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -162,7 +162,7 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'page'=> '1',
+            'page'=> '12',
         ],
     ]
 );
@@ -327,7 +327,7 @@ curl -X PUT \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"update_date":"in"}'
+    -d '{"update_date":"omnis"}'
 
 ```
 
@@ -343,7 +343,7 @@ let headers = {
 };
 
 let body = {
-    "update_date": "in"
+    "update_date": "omnis"
 }
 
 fetch(url, {
@@ -367,7 +367,7 @@ $response = $client->put(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'update_date' => 'in',
+            'update_date' => 'omnis',
         ],
     ]
 );
@@ -399,7 +399,7 @@ APIs for interacting and managing saving groups
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/groups?page=14" \
+    -G "http://127.0.0.1:8000/api/groups?page=10" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -411,7 +411,7 @@ const url = new URL(
 );
 
 let params = {
-    "page": "14",
+    "page": "10",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -442,7 +442,7 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'page'=> '14',
+            'page'=> '10',
         ],
     ]
 );
@@ -482,7 +482,7 @@ curl -X POST \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolorem","description":"est","amount":198.56,"max_capacity":16,"start_date":"similique","private":false}'
+    -d '{"name":"at","description":"voluptas","amount":270276538,"max_capacity":13,"start_date":"reiciendis","private":false}'
 
 ```
 
@@ -498,11 +498,11 @@ let headers = {
 };
 
 let body = {
-    "name": "dolorem",
-    "description": "est",
-    "amount": 198.56,
-    "max_capacity": 16,
-    "start_date": "similique",
+    "name": "at",
+    "description": "voluptas",
+    "amount": 270276538,
+    "max_capacity": 13,
+    "start_date": "reiciendis",
     "private": false
 }
 
@@ -527,11 +527,11 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'dolorem',
-            'description' => 'est',
-            'amount' => 198.56,
-            'max_capacity' => 16,
-            'start_date' => 'similique',
+            'name' => 'at',
+            'description' => 'voluptas',
+            'amount' => 270276538.0,
+            'max_capacity' => 13,
+            'start_date' => 'reiciendis',
             'private' => false,
         ],
     ]
@@ -634,7 +634,7 @@ curl -X PUT \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"rerum","description":"hic","amount":36010616.04024355,"max_capacity":19,"private":true}'
+    -d '{"name":"repellendus","description":"corporis","amount":4334.712,"max_capacity":20,"private":false}'
 
 ```
 
@@ -650,11 +650,11 @@ let headers = {
 };
 
 let body = {
-    "name": "rerum",
-    "description": "hic",
-    "amount": 36010616.04024355,
-    "max_capacity": 19,
-    "private": true
+    "name": "repellendus",
+    "description": "corporis",
+    "amount": 4334.712,
+    "max_capacity": 20,
+    "private": false
 }
 
 fetch(url, {
@@ -678,11 +678,11 @@ $response = $client->put(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'rerum',
-            'description' => 'hic',
-            'amount' => 36010616.04024355,
-            'max_capacity' => 19,
-            'private' => true,
+            'name' => 'repellendus',
+            'description' => 'corporis',
+            'amount' => 4334.712,
+            'max_capacity' => 20,
+            'private' => false,
         ],
     ]
 );
@@ -723,7 +723,7 @@ curl -X POST \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"invite_code":"cumque"}'
+    -d '{"invite_code":"molestiae"}'
 
 ```
 
@@ -739,7 +739,7 @@ let headers = {
 };
 
 let body = {
-    "invite_code": "cumque"
+    "invite_code": "molestiae"
 }
 
 fetch(url, {
@@ -763,7 +763,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'invite_code' => 'cumque',
+            'invite_code' => 'molestiae',
         ],
     ]
 );
@@ -795,7 +795,7 @@ Parameter | Type | Status | Description
 curl -X POST \
     "http://127.0.0.1:8000/api/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"aliquid","email":"rem","password":"perspiciatis"}'
+    -d '{"name":"iste","email":"placeat","password":"quasi"}'
 
 ```
 
@@ -810,9 +810,9 @@ let headers = {
 };
 
 let body = {
-    "name": "aliquid",
-    "email": "rem",
-    "password": "perspiciatis"
+    "name": "iste",
+    "email": "placeat",
+    "password": "quasi"
 }
 
 fetch(url, {
@@ -834,9 +834,9 @@ $response = $client->post(
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'name' => 'aliquid',
-            'email' => 'rem',
-            'password' => 'perspiciatis',
+            'name' => 'iste',
+            'email' => 'placeat',
+            'password' => 'quasi',
         ],
     ]
 );
@@ -867,7 +867,7 @@ Parameter | Type | Status | Description
 curl -X POST \
     "http://127.0.0.1:8000/api/login" \
     -H "Content-Type: application/json" \
-    -d '{"email":"veniam","password":"harum"}'
+    -d '{"email":"et","password":"quam"}'
 
 ```
 
@@ -882,8 +882,8 @@ let headers = {
 };
 
 let body = {
-    "email": "veniam",
-    "password": "harum"
+    "email": "et",
+    "password": "quam"
 }
 
 fetch(url, {
@@ -905,8 +905,8 @@ $response = $client->post(
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'email' => 'veniam',
-            'password' => 'harum',
+            'email' => 'et',
+            'password' => 'quam',
         ],
     ]
 );

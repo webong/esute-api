@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Group;
 use App\Http\Resources\GroupUserResource;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
  * @group Group Members
@@ -16,8 +17,8 @@ class GroupUserController extends Controller
      *
      * @authenticated
      * @queryParam page The page number to return
-     * @param  \App\Group  $group
-     * @return \Illuminate\Http\Response
+     * @param Group $group
+     * @return AnonymousResourceCollection
      */
     public function index(Group $group)
     {
@@ -31,9 +32,9 @@ class GroupUserController extends Controller
     /**
      * Display the specified group member.
      *
-     * @param  \App\Group  $group
-     * @param  \App\Group  $groupUser
-     * @return \Illuminate\Http\Response
+     * @param Group $group
+     * @param User $user
+     * @return GroupUserResource
      */
     public function show(Group $group, User $user)
     {

@@ -6,7 +6,8 @@ use App\GroupUser;
 use App\GroupInvite;
 use App\Http\Requests\JoinGroup;
 use App\Group;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
+use Auth;
 
 /**
  * @group Join Group
@@ -19,25 +20,27 @@ class JoinGroupController extends Controller
      * @authenticated
      * @param JoinGroup $request
      * @param Group $group
-     * @return void
+     * @return JsonResponse
      */
     public function __invoke(JoinGroup $request, Group $group)
     {
         if (!is_null($this->groupUserExists($group)))
             return response()->json(['message' => 'You\'re already a member of this group'], 409);
 
-        if ($request->has('invite_code')) {
-            if (!is_null($this->groupInviteExists($request->invite_code)))
-                return response()->json(['message' => 'Invite code is not valid'], 422);
-        } else {
-            if ($group->private)
-                return response()->json(['message' => 'You cannot join a private group'], 403);
-        }
+        if ($request->exists('invite_code') && !is_null($this->groupInviteExists($request->get('invite_code'))))
+            return response()->json(['message' => 'Invite code is not valid'], 422);
+
+        if ($group->private)
+            return response()->json(['message' => 'You cannot join a private group'], 403);
 
         $this->createGroupUser($group);
+
         return response()->json(['message' => "You're now a member of {$group->name} group"]);
     }
 
+    /**
+     * @param Group $group
+     */
     private function groupUserExists($group)
     {
         GroupUser::where('user_id', Auth::id())
@@ -45,6 +48,9 @@ class JoinGroupController extends Controller
             ->first();
     }
 
+    /**
+     * @param string $invite_code
+     */
     private function groupInviteExists($invite_code)
     {
         GroupInvite::where('email', Auth::user()->email)
@@ -52,6 +58,9 @@ class JoinGroupController extends Controller
             ->first();
     }
 
+    /**
+     * @param Group $group
+     */
     private function createGroupUser($group)
     {
         GroupUser::create([

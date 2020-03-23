@@ -8,9 +8,13 @@ use App\Http\Requests\CreateGroup;
 use App\Http\Requests\UpdateGroup;
 use App\Http\Requests\DeleteGroup;
 use App\Http\Resources\GroupResource;
+use Auth;
+use DB;
 use Exception;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
+use Throwable;
 
 /**
  * @group Groups
@@ -24,7 +28,7 @@ class GroupController extends Controller
      *
      * @authenticated
      * @queryParam page The page number to return
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
@@ -38,13 +42,14 @@ class GroupController extends Controller
      *
      * @authenticated
      * @param CreateGroup $request
-     * @return \Illuminate\Http\JsonResponse|object
-     * @throws \Throwable
+     * @return JsonResponse|object
+     * @throws Throwable
      */
     public function store(CreateGroup $request)
     {
-        DB::beginTransaction();
         try {
+            DB::beginTransaction();
+
             $group = Group::create($request->validated());
 
             if (!$group)
@@ -63,6 +68,7 @@ class GroupController extends Controller
                 ->setStatusCode(201);
         } catch (Exception $e) {
             DB::rollback();
+            throw $e;
         }
     }
 
@@ -71,7 +77,7 @@ class GroupController extends Controller
      *
      * @authenticated
      * @param Group $group
-     * @return GroupResource|\Illuminate\Http\Response
+     * @return GroupResource|JsonResponse
      */
     public function show(Group $group)
     {
@@ -87,7 +93,7 @@ class GroupController extends Controller
      * @authenticated
      * @param UpdateGroup $request
      * @param Group $group
-     * @return GroupResource|\Illuminate\Http\Response
+     * @return GroupResource|Response
      */
     public function update(UpdateGroup $request, Group $group)
     {
@@ -102,7 +108,7 @@ class GroupController extends Controller
      * @authenticated
      * @param DeleteGroup $request
      * @param Group $group
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      * @throws Exception
      */
     public function delete(DeleteGroup $request, Group $group)

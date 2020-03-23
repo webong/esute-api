@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Group;
 use App\Actions\StartGroupCycle;
 use App\Http\Requests\GroupSchedule;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
 
 /**
  * @group Group Scheduling
@@ -18,7 +20,7 @@ class GroupScheduleController extends Controller
      * @param GroupSchedule $request
      * @param Group $group
      * @param StartGroupCycle $startGroupCycle
-     * @return void
+     * @return JsonResponse
      */
     public function index(GroupSchedule $request, Group $group, StartGroupCycle $startGroupCycle)
     {
@@ -34,7 +36,8 @@ class GroupScheduleController extends Controller
      * @bodyParam update_date date The date savings would commence for the group
      * @param GroupSchedule $request
      * @param Group $group
-     * @return void
+     * @return JsonResponse
+     * @throws ValidationException
      */
     public function update(GroupSchedule $request, Group $group)
     {
@@ -45,7 +48,7 @@ class GroupScheduleController extends Controller
         if ($group->status = 'active')
             return response()->json([ 'message' => 'You cannot update start date of an active group'], 400);
 
-        $group->update(['start_date' => $request->update_date]);
+        $group->update(['start_date' => $request->get('update_date')]);
 
         return response()->json('Group start date updated');
     }
