@@ -1,1 +1,461 @@
-{"variables":[],"info":{"name":"Laravel API","_postman_id":"c7194e40-edec-4063-8031-e45022fbb56f","description":"","schema":"https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"},"item":[{"name":"General","description":"","item":[{"name":"Handle a registration request for the application.","request":{"url":"http:\/\/localhost\/api\/register","method":"POST","body":{"mode":"formdata","formdata":[{"key":"name","value":"beatae","type":"text","enabled":true},{"key":"email","value":"aut","type":"text","enabled":true},{"key":"password","value":"autem","type":"text","enabled":true}]},"description":"","response":[]}},{"name":"Handle a login request to the application.","request":{"url":"http:\/\/localhost\/api\/login","method":"POST","body":{"mode":"formdata","formdata":[{"key":"email","value":"cumque","type":"text","enabled":true},{"key":"password","value":"mollitia","type":"text","enabled":true}]},"description":"","response":[]}},{"name":"Log the user out of the application.","request":{"url":"http:\/\/localhost\/api\/logout","method":"POST","body":{"mode":"formdata","formdata":[]},"description":"","response":[]}}]},{"name":"Group Invitation","description":"","item":[{"name":"Invite a list of emails to the group.","request":{"url":"http:\/\/localhost\/api\/groups\/{group}\/invite","method":"POST","body":{"mode":"formdata","formdata":[{"key":"emails","value":"aut","type":"text","enabled":true},{"key":"message","value":"sed","type":"text","enabled":true}]},"description":"","response":[]}}]},{"name":"Group Members","description":"","item":[{"name":"Display a listing of the group members.","request":{"url":"http:\/\/localhost\/api\/groups\/{group}\/users","method":"GET","body":{"mode":"formdata","formdata":[]},"description":"","response":[]}},{"name":"Display the specified group member.","request":{"url":"http:\/\/localhost\/api\/groups\/{group}\/users\/{user}","method":"GET","body":{"mode":"formdata","formdata":[]},"description":"","response":[]}}]},{"name":"Group Scheduling","description":"","item":[{"name":"Start a Group Saving","request":{"url":"http:\/\/localhost\/api\/groups\/{group}\/schedule","method":"POST","body":{"mode":"formdata","formdata":[]},"description":"","response":[]}},{"name":"Update Group Start Date if not already started","request":{"url":"http:\/\/localhost\/api\/groups\/{group}\/schedule","method":"PUT","body":{"mode":"urlencoded","urlencoded":[{"key":"update_date","value":"quo","type":"text","enabled":true}]},"description":"","response":[]}}]},{"name":"Groups\n\nAPIs for interacting and managing saving groups","description":"","item":[{"name":"Display a listing of the group.","request":{"url":"http:\/\/localhost\/api\/groups","method":"GET","body":{"mode":"formdata","formdata":[]},"description":"","response":[]}},{"name":"Store a newly created group in database.","request":{"url":"http:\/\/localhost\/api\/groups","method":"POST","body":{"mode":"formdata","formdata":[{"key":"name","value":"architecto","type":"text","enabled":true},{"key":"description","value":"eius","type":"text","enabled":true},{"key":"amount","value":25834204.294560947,"type":"text","enabled":true},{"key":"max_capacity","value":3,"type":"text","enabled":true},{"key":"start_date","value":"error","type":"text","enabled":true},{"key":"private","value":false,"type":"text","enabled":true}]},"description":"","response":[]}},{"name":"Display the group resource.","request":{"url":"http:\/\/localhost\/api\/groups\/{group}","method":"GET","body":{"mode":"formdata","formdata":[]},"description":"","response":[]}},{"name":"Update the specified group in storage.","request":{"url":"http:\/\/localhost\/api\/groups\/{group}","method":"PUT","body":{"mode":"urlencoded","urlencoded":[{"key":"name","value":"nostrum","type":"text","enabled":true},{"key":"description","value":"suscipit","type":"text","enabled":true},{"key":"amount","value":225.15132724,"type":"text","enabled":true},{"key":"max_capacity","value":3,"type":"text","enabled":true},{"key":"private","value":false,"type":"text","enabled":true}]},"description":"","response":[]}}]},{"name":"Join Group","description":"","item":[{"name":"Join a Group","request":{"url":"http:\/\/localhost\/api\/groups\/{group}\/join","method":"POST","body":{"mode":"formdata","formdata":[{"key":"invite_code","value":"molestiae","type":"text","enabled":true}]},"description":"","response":[]}}]}]}
+{
+    "variables": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "7f5feddb-7bce-44a6-93d7-6733d6281e52",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Group Invitation",
+            "description": "",
+            "item": [
+                {
+                    "name": "Invite a list of emails to the group.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group\/invite",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"emails\": \"aut\",\n    \"message\": \"aperiam\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Group Members",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a listing of the group members.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group\/users",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "14",
+                                    "description": "The page number to return",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Display the specified group member.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group\/users\/:user",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Group Scheduling",
+            "description": "",
+            "item": [
+                {
+                    "name": "Start a Group Saving",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group\/schedule",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update Group Start Date if not already started",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group\/schedule",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"update_date\": \"voluptatum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Groups",
+            "description": "\nAPIs for interacting and managing saving groups",
+            "item": [
+                {
+                    "name": "Display a listing of the group.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "9",
+                                    "description": "The page number to return",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store a newly created group in database.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"exercitationem\",\n    \"description\": \"accusantium\",\n    \"amount\": 9698.15721,\n    \"max_capacity\": 18,\n    \"start_date\": \"hic\",\n    \"private\": true\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Display the group resource.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update the specified group in storage.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"odit\",\n    \"description\": \"qui\",\n    \"amount\": 16350.184913,\n    \"max_capacity\": 6,\n    \"private\": true\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Join Group",
+            "description": "",
+            "item": [
+                {
+                    "name": "Join a Group",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/groups\/:group\/join",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"invite_code\": \"modi\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "general",
+            "description": "",
+            "item": [
+                {
+                    "name": "Handle a registration request for the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"et\",\n    \"email\": \"voluptate\",\n    \"password\": \"sunt\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Handle a login request to the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"similique\",\n    \"password\": \"odit\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Log the user out of the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/logout",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}

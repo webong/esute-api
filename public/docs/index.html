@@ -12,7 +12,7 @@
 
           <script>
         $(function() {
-            setupLanguages(["bash","javascript"]);
+            setupLanguages(["bash","javascript","php"]);
         });
       </script>
       </head>
@@ -29,6 +29,7 @@
                     <div class="lang-selector">
                                   <a href="#" data-language-name="bash">bash</a>
                                   <a href="#" data-language-name="javascript">javascript</a>
+                                  <a href="#" data-language-name="php">php</a>
                             </div>
                             <div class="search">
               <input type="text" class="search" id="input-search" placeholder="Search">
@@ -48,186 +49,6 @@
 <p>Welcome to the generated API reference.
 <a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
-<h1>General</h1>
-<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
-<h2>Handle a registration request for the application.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "/api/register" \
-    -H "Content-Type: application/json" \
-    -d '{"name":"beatae","email":"aut","password":"autem"}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/register");
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-let body = {
-    "name": "beatae",
-    "email": "aut",
-    "password": "autem"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/register", [
-    'headers' =&gt; [
-            "Content-Type" =&gt; "application/json",
-        ],
-    'json' =&gt; [
-            "name" =&gt; "beatae",
-            "email" =&gt; "aut",
-            "password" =&gt; "autem",
-        ],
-]);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST api/register</code></p>
-<h4>Body Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>required</td>
-<td>The email of the user.</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>required</td>
-<td>The email of the user.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>string</td>
-<td>optional</td>
-<td>The password of the user.</td>
-</tr>
-</tbody>
-</table>
-<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
-<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
-<h2>Handle a login request to the application.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "/api/login" \
-    -H "Content-Type: application/json" \
-    -d '{"email":"cumque","password":"mollitia"}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/login");
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-let body = {
-    "email": "cumque",
-    "password": "mollitia"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/login", [
-    'headers' =&gt; [
-            "Content-Type" =&gt; "application/json",
-        ],
-    'json' =&gt; [
-            "email" =&gt; "cumque",
-            "password" =&gt; "mollitia",
-        ],
-]);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST api/login</code></p>
-<h4>Body Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>required</td>
-<td>The email of the user.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>string</td>
-<td>optional</td>
-<td>The password of the user.</td>
-</tr>
-</tbody>
-</table>
-<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
-<!-- START_61739f3220a224b34228600649230ad1 -->
-<h2>Log the user out of the application.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "/api/logout" \
-    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/logout");
-
-let headers = {
-    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/logout", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-        ],
-]);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST api/logout</code></p>
-<!-- END_61739f3220a224b34228600649230ad1 -->
 <h1>Group Invitation</h1>
 <!-- START_3266674e1b0d799355c17f2d42d7be9a -->
 <h2>Invite a list of emails to the group.</h2>
@@ -235,22 +56,26 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "/api/groups/2/invite" \
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/groups/1/invite" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"emails":"aut","message":"sed"}'
+    -H "Accept: application/json" \
+    -d '{"emails":"aut","message":"aperiam"}'
 </code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2/invite");
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1/invite"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
-}
+};
 
 let body = {
     "emails": "aut",
-    "message": "sed"
+    "message": "aperiam"
 }
 
 fetch(url, {
@@ -262,16 +87,20 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/groups/2/invite", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-            "Content-Type" =&gt; "application/json",
+$response = $client-&gt;post(
+    'http://localhost/api/groups/1/invite',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-    'json' =&gt; [
-            "emails" =&gt; "aut",
-            "message" =&gt; "sed",
+        'json' =&gt; [
+            'emails' =&gt; 'aut',
+            'message' =&gt; 'aperiam',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
@@ -296,13 +125,13 @@ print_r(json_decode((string) $body));</code></pre>
 </thead>
 <tbody>
 <tr>
-<td>emails</td>
+<td><code>emails</code></td>
 <td>string</td>
 <td>required</td>
 <td>The list of the emails to be invited to the group. Example example@gmail.com, jon@snow.com</td>
 </tr>
 <tr>
-<td>message</td>
+<td><code>message</code></td>
 <td>string</td>
 <td>optional</td>
 <td>The inivitation message.</td>
@@ -317,20 +146,26 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET -G "/api/groups/2/users" \
-    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2/users");
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/groups/1/users?page=14" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1/users"
+);
 
-    let params = {
-            "page": "5",
-        };
-    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+let params = {
+    "page": "14",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-    "Accept": "application/json",
     "Content-Type": "application/json",
-}
+    "Accept": "application/json",
+};
 
 fetch(url, {
     method: "GET",
@@ -340,53 +175,26 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;get("/api/groups/2/users", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
+$response = $client-&gt;get(
+    'http://localhost/api/groups/1/users',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-    'query' =&gt; [
-            "page" =&gt; "5",
+        'query' =&gt; [
+            'page'=&gt; '14',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "data": [
-        {
-            "id": 1,
-            "name": "Wisdom Aebong",
-            "email": "wisdomjebong@gmail.com",
-            "status": "inactive",
-            "current_cycle": "0",
-            "contributions": 0
-        },
-        {
-            "id": 3,
-            "name": "Example",
-            "email": "example@mail.com",
-            "status": "active",
-            "current_cycle": "0",
-            "contributions": 0
-        }
-    ],
-    "links": {
-        "first": "http:\/\/localhost\/api\/groups\/2\/users?page=1",
-        "last": "http:\/\/localhost\/api\/groups\/2\/users?page=1",
-        "prev": null,
-        "next": null
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 1,
-        "path": "http:\/\/localhost\/api\/groups\/2\/users",
-        "per_page": 15,
-        "to": 2,
-        "total": 2
-    }
+    "message": "Server Error"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/groups/{group}/users</code></p>
@@ -401,7 +209,7 @@ print_r(json_decode((string) $body));</code></pre>
 </thead>
 <tbody>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>optional</td>
 <td>The page number to return</td>
 </tr>
@@ -413,15 +221,20 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET -G "/api/groups/2/users/1" \
-    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2/users/1");
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/groups/1/users/1" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1/users/1"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-    "Accept": "application/json",
     "Content-Type": "application/json",
-}
+    "Accept": "application/json",
+};
 
 fetch(url, {
     method: "GET",
@@ -431,25 +244,23 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;get("/api/groups/2/users/1", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
+$response = $client-&gt;get(
+    'http://localhost/api/groups/1/users/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "data": {
-        "id": 1,
-        "name": "Wisdom Aebong",
-        "email": "wisdomjebong@gmail.com",
-        "status": "inactive",
-        "current_cycle": "0",
-        "contributions": 0
-    }
+    "message": "Server Error"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/groups/{group}/users/{user}</code></p>
@@ -461,15 +272,20 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "/api/groups/2/schedule" \
-    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2/schedule");
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/groups/1/schedule" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1/schedule"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-    "Accept": "application/json",
     "Content-Type": "application/json",
-}
+    "Accept": "application/json",
+};
 
 fetch(url, {
     method: "POST",
@@ -479,11 +295,16 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/groups/2/schedule", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
+$response = $client-&gt;post(
+    'http://localhost/api/groups/1/schedule',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <h3>HTTP Request</h3>
@@ -495,21 +316,25 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "/api/groups/2/schedule" \
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/groups/1/schedule" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"update_date":"quo"}'
+    -H "Accept: application/json" \
+    -d '{"update_date":"voluptatum"}'
 </code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2/schedule");
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1/schedule"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
-}
+};
 
 let body = {
-    "update_date": "quo"
+    "update_date": "voluptatum"
 }
 
 fetch(url, {
@@ -521,15 +346,19 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;put("/api/groups/2/schedule", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-            "Content-Type" =&gt; "application/json",
+$response = $client-&gt;put(
+    'http://localhost/api/groups/1/schedule',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-    'json' =&gt; [
-            "update_date" =&gt; "quo",
+        'json' =&gt; [
+            'update_date' =&gt; 'voluptatum',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <h3>HTTP Request</h3>
@@ -546,7 +375,7 @@ print_r(json_decode((string) $body));</code></pre>
 </thead>
 <tbody>
 <tr>
-<td>update_date</td>
+<td><code>update_date</code></td>
 <td>date</td>
 <td>optional</td>
 <td>The date savings would commence for the group</td>
@@ -562,20 +391,26 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET -G "/api/groups" \
-    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups");
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/groups?page=9" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups"
+);
 
-    let params = {
-            "page": "15",
-        };
-    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+let params = {
+    "page": "9",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-    "Accept": "application/json",
     "Content-Type": "application/json",
-}
+    "Accept": "application/json",
+};
 
 fetch(url, {
     method: "GET",
@@ -585,135 +420,26 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;get("/api/groups", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
+$response = $client-&gt;get(
+    'http://localhost/api/groups',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-    'query' =&gt; [
-            "page" =&gt; "15",
+        'query' =&gt; [
+            'page'=&gt; '9',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "data": [
-        {
-            "id": 1,
-            "name": "Group One",
-            "description": null,
-            "amount": 2000,
-            "start_date": "2019-12-08 00:00:00",
-            "completed_cycle": 0,
-            "max_capacity": null,
-            "private": false,
-            "status": "inactive",
-            "created_at": "2019-08-10 13:52:46",
-            "updated_at": "2019-08-10 13:52:46",
-            "deleted_at": null
-        },
-        {
-            "id": 2,
-            "name": "Group Two",
-            "description": null,
-            "amount": 2000,
-            "start_date": "2019-12-08 00:00:00",
-            "completed_cycle": 0,
-            "max_capacity": null,
-            "private": false,
-            "status": "inactive",
-            "created_at": "2019-08-10 13:56:09",
-            "updated_at": "2019-08-10 13:56:09",
-            "deleted_at": null
-        },
-        {
-            "id": 4,
-            "name": "at",
-            "description": "Mock Turtle in a game of croquet she was not otherwise than what it meant till now.' 'If.",
-            "amount": 5088,
-            "start_date": "1994-03-29 00:00:00",
-            "completed_cycle": 0,
-            "max_capacity": null,
-            "private": false,
-            "status": "inactive",
-            "created_at": "2019-08-10 14:35:43",
-            "updated_at": "2019-08-10 14:35:43",
-            "deleted_at": null
-        },
-        {
-            "id": 6,
-            "name": "id",
-            "description": "Alice; 'I daresay it's a French mouse, come over with diamonds, and walked two and two, as the doubled-up soldiers were always getting up and walking off to other.",
-            "amount": 8817,
-            "start_date": "1996-12-03 00:00:00",
-            "completed_cycle": 0,
-            "max_capacity": null,
-            "private": false,
-            "status": "inactive",
-            "created_at": "2019-08-10 14:35:43",
-            "updated_at": "2019-08-10 14:35:43",
-            "deleted_at": null
-        },
-        {
-            "id": 7,
-            "name": "non",
-            "description": "Mouse, who was sitting on a crimson velvet cushion; and, last of all her coaxing. Hardly knowing what she was up.",
-            "amount": 4935,
-            "start_date": "1994-06-03 00:00:00",
-            "completed_cycle": 0,
-            "max_capacity": null,
-            "private": false,
-            "status": "inactive",
-            "created_at": "2019-08-10 14:35:43",
-            "updated_at": "2019-08-10 14:35:43",
-            "deleted_at": null
-        },
-        {
-            "id": 9,
-            "name": "porro",
-            "description": "However, 'jury-men' would have made a dreadfully ugly child: but it puzzled her a good opportunity for making her escape; so she began thinking.",
-            "amount": 8828,
-            "start_date": "2012-06-04 00:00:00",
-            "completed_cycle": 0,
-            "max_capacity": null,
-            "private": false,
-            "status": "inactive",
-            "created_at": "2019-08-10 14:35:43",
-            "updated_at": "2019-08-10 14:35:43",
-            "deleted_at": null
-        },
-        {
-            "id": 11,
-            "name": "quos",
-            "description": "I will prosecute YOU.--Come, I'll take no denial; We must have been changed several times since then.' 'What do you know about this.",
-            "amount": 5595,
-            "start_date": "1975-11-01 00:00:00",
-            "completed_cycle": 0,
-            "max_capacity": null,
-            "private": false,
-            "status": "inactive",
-            "created_at": "2019-08-10 14:35:43",
-            "updated_at": "2019-08-10 14:35:43",
-            "deleted_at": null
-        }
-    ],
-    "links": {
-        "first": "http:\/\/localhost\/api\/groups?page=1",
-        "last": "http:\/\/localhost\/api\/groups?page=1",
-        "prev": null,
-        "next": null
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 1,
-        "path": "http:\/\/localhost\/api\/groups",
-        "per_page": 15,
-        "to": 7,
-        "total": 7
-    }
+    "message": "Server Error"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/groups</code></p>
@@ -728,7 +454,7 @@ print_r(json_decode((string) $body));</code></pre>
 </thead>
 <tbody>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>optional</td>
 <td>The page number to return</td>
 </tr>
@@ -741,26 +467,30 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "/api/groups" \
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/groups" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"name":"architecto","description":"eius","amount":25834204.294560947,"max_capacity":3,"start_date":"error","private":false}'
+    -H "Accept: application/json" \
+    -d '{"name":"exercitationem","description":"accusantium","amount":9698.15721,"max_capacity":18,"start_date":"hic","private":true}'
 </code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups");
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
-}
+};
 
 let body = {
-    "name": "architecto",
-    "description": "eius",
-    "amount": 25834204.294560947,
-    "max_capacity": 3,
-    "start_date": "error",
-    "private": false
+    "name": "exercitationem",
+    "description": "accusantium",
+    "amount": 9698.15721,
+    "max_capacity": 18,
+    "start_date": "hic",
+    "private": true
 }
 
 fetch(url, {
@@ -772,20 +502,24 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/groups", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-            "Content-Type" =&gt; "application/json",
+$response = $client-&gt;post(
+    'http://localhost/api/groups',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-    'json' =&gt; [
-            "name" =&gt; "architecto",
-            "description" =&gt; "eius",
-            "amount" =&gt; "25834204.294561",
-            "max_capacity" =&gt; "3",
-            "start_date" =&gt; "error",
-            "private" =&gt; "",
+        'json' =&gt; [
+            'name' =&gt; 'exercitationem',
+            'description' =&gt; 'accusantium',
+            'amount' =&gt; 9698.15721,
+            'max_capacity' =&gt; 18,
+            'start_date' =&gt; 'hic',
+            'private' =&gt; true,
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <h3>HTTP Request</h3>
@@ -802,37 +536,37 @@ print_r(json_decode((string) $body));</code></pre>
 </thead>
 <tbody>
 <tr>
-<td>name</td>
+<td><code>name</code></td>
 <td>string</td>
 <td>required</td>
 <td>The name of the group.</td>
 </tr>
 <tr>
-<td>description</td>
+<td><code>description</code></td>
 <td>string</td>
 <td>optional</td>
 <td>The description of the group.</td>
 </tr>
 <tr>
-<td>amount</td>
+<td><code>amount</code></td>
 <td>float</td>
 <td>optional</td>
 <td>The fixed amount for saving contribution.</td>
 </tr>
 <tr>
-<td>max_capacity</td>
+<td><code>max_capacity</code></td>
 <td>integer</td>
 <td>optional</td>
 <td>The maximum amount of group members.</td>
 </tr>
 <tr>
-<td>start_date</td>
+<td><code>start_date</code></td>
 <td>date</td>
 <td>optional</td>
 <td>The date savings would commence for the group</td>
 </tr>
 <tr>
-<td>private</td>
+<td><code>private</code></td>
 <td>boolean</td>
 <td>optional</td>
 <td>The group type if private or public. Defaults to false.</td>
@@ -846,15 +580,20 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET -G "/api/groups/2" \
-    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"</code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2");
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/groups/1" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-    "Accept": "application/json",
     "Content-Type": "application/json",
-}
+    "Accept": "application/json",
+};
 
 fetch(url, {
     method: "GET",
@@ -864,31 +603,23 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;get("/api/groups/2", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
+$response = $client-&gt;get(
+    'http://localhost/api/groups/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "data": {
-        "id": 2,
-        "name": "Group Two",
-        "description": null,
-        "amount": 2000,
-        "start_date": "2019-12-08 00:00:00",
-        "completed_cycle": 0,
-        "max_capacity": null,
-        "private": false,
-        "status": "inactive",
-        "created_at": "2019-08-10 13:56:09",
-        "updated_at": "2019-08-10 13:56:09",
-        "deleted_at": null
-    }
+    "message": "Server Error"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/groups/{group}</code></p>
@@ -899,25 +630,29 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "/api/groups/2" \
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/groups/1" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"name":"nostrum","description":"suscipit","amount":225.15132724,"max_capacity":3,"private":false}'
+    -H "Accept: application/json" \
+    -d '{"name":"odit","description":"qui","amount":16350.184913,"max_capacity":6,"private":true}'
 </code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2");
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
-}
+};
 
 let body = {
-    "name": "nostrum",
-    "description": "suscipit",
-    "amount": 225.15132724,
-    "max_capacity": 3,
-    "private": false
+    "name": "odit",
+    "description": "qui",
+    "amount": 16350.184913,
+    "max_capacity": 6,
+    "private": true
 }
 
 fetch(url, {
@@ -929,19 +664,23 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;put("/api/groups/2", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-            "Content-Type" =&gt; "application/json",
+$response = $client-&gt;put(
+    'http://localhost/api/groups/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-    'json' =&gt; [
-            "name" =&gt; "nostrum",
-            "description" =&gt; "suscipit",
-            "amount" =&gt; "225.15132724",
-            "max_capacity" =&gt; "3",
-            "private" =&gt; "",
+        'json' =&gt; [
+            'name' =&gt; 'odit',
+            'description' =&gt; 'qui',
+            'amount' =&gt; 16350.184913,
+            'max_capacity' =&gt; 6,
+            'private' =&gt; true,
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <h3>HTTP Request</h3>
@@ -959,31 +698,31 @@ print_r(json_decode((string) $body));</code></pre>
 </thead>
 <tbody>
 <tr>
-<td>name</td>
+<td><code>name</code></td>
 <td>string</td>
 <td>required</td>
 <td>The name of the group.</td>
 </tr>
 <tr>
-<td>description</td>
+<td><code>description</code></td>
 <td>string</td>
 <td>optional</td>
 <td>The description of the group.</td>
 </tr>
 <tr>
-<td>amount</td>
+<td><code>amount</code></td>
 <td>float</td>
 <td>optional</td>
 <td>The fixed amount for saving contribution.</td>
 </tr>
 <tr>
-<td>max_capacity</td>
+<td><code>max_capacity</code></td>
 <td>integer</td>
 <td>optional</td>
 <td>The maximum amount of group members.</td>
 </tr>
 <tr>
-<td>private</td>
+<td><code>private</code></td>
 <td>boolean</td>
 <td>optional</td>
 <td>The group type if private or public. Defaults to false.</td>
@@ -998,21 +737,25 @@ print_r(json_decode((string) $body));</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "/api/groups/2/join" \
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/groups/1/join" \
     -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
     -H "Content-Type: application/json" \
-    -d '{"invite_code":"molestiae"}'
+    -H "Accept: application/json" \
+    -d '{"invite_code":"modi"}'
 </code></pre>
-<pre><code class="language-javascript">const url = new URL("/api/groups/2/join");
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/groups/1/join"
+);
 
 let headers = {
     "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
     "Content-Type": "application/json",
     "Accept": "application/json",
-}
+};
 
 let body = {
-    "invite_code": "molestiae"
+    "invite_code": "modi"
 }
 
 fetch(url, {
@@ -1024,15 +767,19 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;post("/api/groups/2/join", [
-    'headers' =&gt; [
-            "Authorization" =&gt; "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
-            "Content-Type" =&gt; "application/json",
+$response = $client-&gt;post(
+    'http://localhost/api/groups/1/join',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
         ],
-    'json' =&gt; [
-            "invite_code" =&gt; "molestiae",
+        'json' =&gt; [
+            'invite_code' =&gt; 'modi',
         ],
-]);
+    ]
+);
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <h3>HTTP Request</h3>
@@ -1049,7 +796,7 @@ print_r(json_decode((string) $body));</code></pre>
 </thead>
 <tbody>
 <tr>
-<td>invite_code</td>
+<td><code>invite_code</code></td>
 <td>string</td>
 <td>optional</td>
 <td>nullable The invite_code to join a group.</td>
@@ -1057,11 +804,214 @@ print_r(json_decode((string) $body));</code></pre>
 </tbody>
 </table>
 <!-- END_7f0d3a6203c9b62c8808dbc0c34fd826 -->
+<h1>general</h1>
+<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
+<h2>Handle a registration request for the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/register" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"et","email":"voluptate","password":"sunt"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "et",
+    "email": "voluptate",
+    "password": "sunt"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/register',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'et',
+            'email' =&gt; 'voluptate',
+            'password' =&gt; 'sunt',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/register</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of the user.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of the user.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The password of the user.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
+<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
+<h2>Handle a login request to the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/login" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"similique","password":"odit"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "similique",
+    "password": "odit"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'similique',
+            'password' =&gt; 'odit',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of the user.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The password of the user.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
+<!-- START_61739f3220a224b34228600649230ad1 -->
+<h2>Log the user out of the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/logout" \
+    -H "Authorization: Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/logout"
+);
+
+let headers = {
+    "Authorization": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/logout',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/logout</code></p>
+<!-- END_61739f3220a224b34228600649230ad1 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
                                     <a href="#" data-language-name="bash">bash</a>
                                     <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="php">php</a>
                               </div>
                 </div>
     </div>
