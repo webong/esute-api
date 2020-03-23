@@ -23,7 +23,11 @@ class SendGroupInvite implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param $email
+     * @param $code
+     * @param $group
+     * @param $message
+     * @param $name
      */
     public function __construct($email, $code, $group, $message, $name)
     {
@@ -42,10 +46,10 @@ class SendGroupInvite implements ShouldQueue
     {
         Mail::to($this->email)
             ->queue(new GroupInvite(
-                $this->invite_code, 
+                $this->invite_code,
                 $this->group,
                 $this->message,
-                $this->name,
+                $this->name
             )
         );
     }

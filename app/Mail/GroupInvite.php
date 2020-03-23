@@ -19,7 +19,10 @@ class GroupInvite extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param $code
+     * @param $group
+     * @param $message
+     * @param $name
      */
     public function __construct($code, $group, $message, $name)
     {

@@ -20,10 +20,16 @@ class GroupInviteController extends Controller
      * @response {
      *  "message": ["Group invite is being processed"]
      * }
+     * @param GroupInvite $request
+     * @param ProcessGroupInvite $processInvite
+     * @param Group $group
+     * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(GroupInvite $request, ProcessGroupInvite $processInvite, Group $group)
     {
-        $processInvite->execute($request, $group, Auth::user());
+        $user = Auth::user();
+
+        $processInvite->execute($request, $group, $user);
 
         return response()->json(['message' => 'Group invite is being processed.']);
     }

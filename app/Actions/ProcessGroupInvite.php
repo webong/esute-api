@@ -24,13 +24,13 @@ class ProcessGroupInvite
         $this->validateUniqueEmails(explode(',', $data->emails));
         $this->sendInvite($this->confirmedEmails, $data->message);
     }
-    
+
     private function validateUniqueEmails($emails)
     {
         // Filtering Duplicates and Null values
-        (array) $emails = array_filter(array_unique($emails));
+        (array) $filteredEmails = array_filter(array_unique($emails));
 
-        foreach ($emails as $key => $email) {
+        foreach ($filteredEmails as $key => $email) {
             $email = trim($email);
 
             // Skip email if it belongs to sender
@@ -40,9 +40,9 @@ class ProcessGroupInvite
                 if (!$this->confirmPreviousInviteByEmail($email)) {
                     if (is_null($this->groupUserExists($email))) {
                         $this->confirmedEmails[] = $email;
-                    } 
+                    }
                 }
-            } 
+            }
         }
     }
 
@@ -82,13 +82,13 @@ class ProcessGroupInvite
 
     private function sendInvite($confirmedEmails, $message)
     {
-        foreach ($confirmedEmails as $email) {       
-            $groupinvite = $this->createGroupInvite($email);     
+        foreach ($confirmedEmails as $email) {
+            $groupinvite = $this->createGroupInvite($email);
             SendGroupInvite::dispatch(
-                $email, 
+                $email,
                 $groupinvite->code,
-                $this->group, 
-                $message, 
+                $this->group,
+                $message,
                 $this->sender->name
             );
         }

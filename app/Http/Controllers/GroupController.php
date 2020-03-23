@@ -8,12 +8,13 @@ use App\Http\Requests\CreateGroup;
 use App\Http\Requests\UpdateGroup;
 use App\Http\Requests\DeleteGroup;
 use App\Http\Resources\GroupResource;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 /**
  * @group Groups
- * 
+ *
  * APIs for interacting and managing saving groups
  */
 class GroupController extends Controller
@@ -23,7 +24,7 @@ class GroupController extends Controller
      *
      * @authenticated
      * @queryParam page The page number to return
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -37,7 +38,8 @@ class GroupController extends Controller
      *
      * @authenticated
      * @param CreateGroup $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|object
+     * @throws \Throwable
      */
     public function store(CreateGroup $request)
     {
@@ -53,13 +55,13 @@ class GroupController extends Controller
                 'group_id' => $group->id,
             ]);
             $groupUser->assignRole('admin');
-            
+
             DB::commit();
-    
+
             return GroupResource::make($group)
                 ->response()
                 ->setStatusCode(201);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
         }
     }
@@ -68,8 +70,8 @@ class GroupController extends Controller
      * Display the group resource.
      *
      * @authenticated
-     * @param Group  $group
-     * @return \Illuminate\Http\Response
+     * @param Group $group
+     * @return GroupResource|\Illuminate\Http\Response
      */
     public function show(Group $group)
     {
@@ -83,9 +85,9 @@ class GroupController extends Controller
      * Update the specified group in storage.
      *
      * @authenticated
-     * @param UpdateRequest $request
-     * @param Group  $group
-     * @return \Illuminate\Http\Response
+     * @param UpdateGroup $request
+     * @param Group $group
+     * @return GroupResource|\Illuminate\Http\Response
      */
     public function update(UpdateGroup $request, Group $group)
     {
@@ -98,9 +100,10 @@ class GroupController extends Controller
      * Delete the specified group in storage.
      *
      * @authenticated
-     * @param DeleteRequest $request
-     * @param Group  $group
-     * @return \Illuminate\Http\Response
+     * @param DeleteGroup $request
+     * @param Group $group
+     * @return \Illuminate\Http\JsonResponse
+     * @throws Exception
      */
     public function delete(DeleteGroup $request, Group $group)
     {

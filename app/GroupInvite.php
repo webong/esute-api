@@ -14,9 +14,9 @@ class GroupInvite extends Model
         return $this->belongsTo('\App\Group');
     }
 
-    public function invited()
+    public function invited($email)
     {
         return $this->belongsTo('\App\User', 'email', 'email')
-            ->where('email', Auth::user()->email);
+            ->where('email', $email);
     }
 }
