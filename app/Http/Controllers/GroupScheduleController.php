@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\Actions\StartGroupCycle;
-use App\Http\Requests\GroupSchedule;
 use Illuminate\Http\JsonResponse;
+use App\Http\Requests\GroupSchedule;
 use Illuminate\Validation\ValidationException;
 
 /**

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\UserResource;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -57,7 +58,7 @@ class LoginController extends Controller
             $user = $this->guard()->user();
 
             $user->generateToken();
-    
+
             return UserResource::make($user);
         }
 

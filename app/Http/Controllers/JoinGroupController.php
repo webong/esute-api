@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Group;
 use App\GroupUser;
 use App\GroupInvite;
 use App\Http\Requests\JoinGroup;
-use App\Group;
 use Illuminate\Http\JsonResponse;
-use Auth;
 
 /**
  * @group Join Group

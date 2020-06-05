@@ -35,16 +35,16 @@ class Role extends Model
 {
     public function user()
     {
-        return $this->belongsToMany('\App\User')
-            ->using('App\GroupUser')
+        return $this->belongsToMany(User::class)
+            ->using(GroupUser::class)
             ->withPivot(['user_id', 'cycle', 'group_id', 'status'])
             ->withTimestamps();
     }
 
     public function group()
     {
-        return $this->belongsToMany('\App\Group')
-            ->using('\App\GroupUser')
+        return $this->belongsToMany(Group::class)
+            ->using(GroupUser::class)
             ->withPivot(['user_id', 'cycle', 'group_id', 'status'])
             ->withTimestamps();
     }

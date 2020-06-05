@@ -287,7 +287,7 @@ return [
     /*
      * Name for the group of routes which do not have a @group set.
      */
-    'default_group' => 'general',
+    'default_group' => 'General',
 
     /*
      * Example requests for each endpoint will be shown in each of these languages.

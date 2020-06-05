@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Group;
-use App\GroupUser;
-use App\Http\Requests\CreateGroup;
-use App\Http\Requests\UpdateGroup;
-use App\Http\Requests\DeleteGroup;
-use App\Http\Resources\GroupResource;
-use Auth;
 use DB;
+use Auth;
 use Exception;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\Response;
 use Throwable;
+use App\{Group, GroupUser};
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use App\Http\Requests\CreateGroup;
+use App\Http\Requests\DeleteGroup;
+use App\Http\Requests\UpdateGroup;
+use App\Http\Resources\GroupResource;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
  * @group Groups

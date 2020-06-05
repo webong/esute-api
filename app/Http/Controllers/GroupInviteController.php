@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Group;
+use Illuminate\Http\JsonResponse;
 use App\Http\Requests\GroupInvite;
 use App\Actions\ProcessGroupInvite;
-use Auth;
-use Illuminate\Http\JsonResponse;
 
 /**
  * @group Group Invitation
@@ -30,6 +30,6 @@ class GroupInviteController extends Controller
     {
         $processInvite->execute($request->toArray(), $group, Auth::user());
 
-        return response()->json(['message' => 'Group invite is being processed.']);
+        return response()->json(['message' => 'Group invite is being sent.']);
     }
 }

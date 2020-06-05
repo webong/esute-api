@@ -34,12 +34,12 @@ class GroupInvite extends Model
 
     public function group()
     {
-        return $this->belongsTo('\App\Group');
+        return $this->belongsTo(Group::class);
     }
 
     public function invited($email)
     {
-        return $this->belongsTo('\App\User', 'email', 'email')
+        return $this->belongsTo(User::class, 'email', 'email')
             ->where('email', $email);
     }
 }

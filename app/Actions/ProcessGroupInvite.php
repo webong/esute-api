@@ -2,13 +2,13 @@
 
 namespace App\Actions;
 
+use Str;
 use App\User;
 use App\Group;
 use App\GroupInvite;
 use App\Jobs\SendGroupInvite;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Str;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProcessGroupInvite
 {

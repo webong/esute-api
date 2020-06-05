@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -71,20 +72,20 @@ class User extends Authenticatable
 
 	public function groups()
 	{
-        return $this->belongsToMany('\App\Group')
-            ->using('App\GroupUser')
+        return $this->belongsToMany(Group::class)
+            ->using(GroupUser::class)
             ->withPivot(['cycle', 'group_id', 'status'])
             ->withTimestamps();
     }
-    
+
     public function contributions()
     {
-        return $this->hasMany('\App\GroupContribution');
+        return $this->hasMany(GroupContribution::class);
     }
 
     public function generateToken()
     {
-        $this->api_token = str_random(60);
+        $this->api_token = Str::random(60);
         $this->save();
 
         return $this->api_token;

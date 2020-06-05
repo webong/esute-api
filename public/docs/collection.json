@@ -2,11 +2,97 @@
     "variables": [],
     "info": {
         "name": "Group Savings App API",
-        "_postman_id": "62abd7b1-591b-45a1-b160-39f60157386f",
+        "_postman_id": "07223894-4444-4299-bef7-46e5e146a7c9",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
     "item": [
+        {
+            "name": "General",
+            "description": "",
+            "item": [
+                {
+                    "name": "Handle a registration request for the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "127.0.0.1:8000",
+                            "path": "api\/register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"eius\",\n    \"email\": \"ad\",\n    \"password\": \"id\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Handle a login request to the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "127.0.0.1:8000",
+                            "path": "api\/login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"hic\",\n    \"password\": \"et\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Log the user out of the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "127.0.0.1:8000",
+                            "path": "api\/logout",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
         {
             "name": "Group Invitation",
             "description": "",
@@ -37,7 +123,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"emails\": \"minima\",\n    \"message\": \"ipsum\"\n}"
+                            "raw": "{\n    \"emails\": \"deserunt\",\n    \"message\": \"id\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -59,7 +145,7 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "12",
+                                    "value": "8",
                                     "description": "The page number to return",
                                     "disabled": false
                                 }
@@ -184,7 +270,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"update_date\": \"omnis\"\n}"
+                            "raw": "{\n    \"update_date\": \"deleniti\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -206,7 +292,7 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "10",
+                                    "value": "7",
                                     "description": "The page number to return",
                                     "disabled": false
                                 }
@@ -261,7 +347,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"at\",\n    \"description\": \"voluptas\",\n    \"amount\": 270276538,\n    \"max_capacity\": 13,\n    \"start_date\": \"reiciendis\",\n    \"private\": false\n}"
+                            "raw": "{\n    \"name\": \"magni\",\n    \"description\": \"aut\",\n    \"amount\": 2051405.09962446,\n    \"max_capacity\": 14,\n    \"start_date\": \"cumque\",\n    \"private\": true\n}"
                         },
                         "description": "",
                         "response": []
@@ -325,7 +411,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"repellendus\",\n    \"description\": \"corporis\",\n    \"amount\": 4334.712,\n    \"max_capacity\": 20,\n    \"private\": false\n}"
+                            "raw": "{\n    \"name\": \"suscipit\",\n    \"description\": \"sed\",\n    \"amount\": 493.9749046,\n    \"max_capacity\": 18,\n    \"private\": true\n}"
                         },
                         "description": "",
                         "response": []
@@ -363,93 +449,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"invite_code\": \"molestiae\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                }
-            ]
-        },
-        {
-            "name": "general",
-            "description": "",
-            "item": [
-                {
-                    "name": "Handle a registration request for the application.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
-                            "path": "api\/register",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"iste\",\n    \"email\": \"placeat\",\n    \"password\": \"quasi\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Handle a login request to the application.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
-                            "path": "api\/login",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"email\": \"et\",\n    \"password\": \"quam\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Log the user out of the application.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
-                            "path": "api\/logout",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer 31cpjnkpUwMmp3N11in7q6eRH7PqcZoDqeRkbcCaDQBEvOeAwmw7ImxCUD9E"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"invite_code\": \"ut\"\n}"
                         },
                         "description": "",
                         "response": []

@@ -3,11 +3,11 @@
 namespace App\Actions;
 
 use App\Group;
-use App\Jobs\CollectGroupContributions;
 use Carbon\Carbon;
-use Spatie\QueueableAction\QueueableAction;
-use Illuminate\Console\Scheduling\Schedule;
 use App\GroupContributionOrder;
+use App\Jobs\CollectGroupContributions;
+use Illuminate\Console\Scheduling\Schedule;
+use Spatie\QueueableAction\QueueableAction;
 
 class StartGroupCycle
 {
@@ -58,9 +58,9 @@ class StartGroupCycle
     {
         $id = $group->id;
         $current_cycle = $group->completed_cycle + 1;
-        $start_date = $group->start_date->toDateString();
+        $start_date = $group->start_date; // ->toDateString();
         $list = [];
-
+git s
         foreach($arranged as $key => $value) {
             $position = $key + 1;
             $date = $start_date->addMonths($position);

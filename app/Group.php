@@ -69,16 +69,16 @@ class Group extends Model
 
     public function members()
     {
-        return $this->belongsToMany('\App\User')
-            ->using('\App\GroupUser')
+        return $this->belongsToMany(User::class)
+            ->using(GroupUser::class)
             ->withPivot(['user_id', 'cycle', 'status'])
             ->withTimestamps();
     }
 
     public function roles()
     {
-        return $this->belongsToMany('\App\Role')
-            ->using('\App\GroupUser')
+        return $this->belongsToMany(Role::class)
+            ->using(GroupUser::class)
             ->withPivot(['user_id', 'cycle','status'])
             ->withTimestamps();
     }
@@ -88,7 +88,7 @@ class Group extends Model
      */
     public function contributions()
     {
-        return $this->hasMany('\App\GroupContribution');
+        return $this->hasMany(GroupContribution::class);
     }
 
     /**
